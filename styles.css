@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    text-align: center;
 }
 
 header {
@@ -15,6 +16,7 @@ header {
 }
 
 h1 {
+    size: 30px;
     margin: 0;
     font-size: 2em;
     letter-spacing: 1px;
