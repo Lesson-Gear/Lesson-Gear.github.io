@@ -16,7 +16,7 @@ header {
 }
 
 h1 {
-    size: 50px;
+    font-size: 50px;
     margin: 0;
     font-size: 2em;
     letter-spacing: 1px;
