@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!--
+    Copyright © 2023 LessonGear. All rights reserved.
+    All rights reserved. This software is the property of LessonGear. 
+    Unauthorized copying of this code, in whole or in part, is strictly prohibited.
+    For inquiries about licensing and usage, please contact LessonGear@gmail.com.
+    -->
+
+    <title>Random Group Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <a href="../index.html">
+        <img src="../back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto;   cursor: pointer;">
+    </a>
+
+    <div class="button-container">
+        <div class = "button-text-container">
+            <div class="button-area">
+                <button id="download">download</button>
+                <button id="uploadBtn">upload</button>
+                <input type="file" id="fileUpload" placeholder="JSON-Datei hochladen" accept=".txt" style="display: none;">
+            </div>
+            <div class="text-aarea">
+
+                So that you don't have to enter the names manually each time, 
+                you can download a text file where the names are stored. 
+                To do this, enter the names in the name field and then click the download button. 
+                Subsequently, the file will be automatically downloaded. 
+                You can move this file from your download folder as desired. 
+                When using the Random Group Generator again, 
+                you can click the upload button and select the file with the names.
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Random Group Generator</h1>
+        </header>
+
+        <div class="content">
+
+            <div class="left">
+                <textarea class="large-textarea" id="names" placeholder="Bitte geben Sie die Namen mit Kommas getrennt ein."></textarea>
+
+                <div class="inputs" id="inputContainer">
+                    <input type="number" id="groupCount" placeholder="Anzahl Gruppen" oninput="toggleInput('peoplePerGroup', this)"> 
+                    <input type="number" id="peoplePerGroup" placeholder="Personen pro Gruppe" oninput="toggleInput('groupCount', this)">
+                </div>
+            </div>
+
+            <div class="right">
+                <div id="result" class="text-area">
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        
+    
+        window.onload = function () {
+        };
+
+        // Download of the txt file
+        document.getElementById('download').addEventListener('click', function() {
+            
+            var textContent = document.getElementById('names').value;
+
+            // do blob from text
+            var blob = new Blob([textContent], { type: "text/plain" });
+
+            // do download link
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = "namen_random_group_generator.txt";
+
+            // do download
+            document.body.appendChild(a);
+            a.click();
+
+            // do cleanup
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+
+
+        // upload of txt file
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            document.getElementById('fileUpload').click();
+        });
+
+        document.getElementById('fileUpload').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var content = e.target.result;
+
+                document.getElementById('names').value = content;
+            };
+
+            reader.readAsText(file);
+        });
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////
+
+        //do classkeys
+        var G23m = "Mats, Q, W, E, R, T"
+        var G23n = "Nick, Nico, Simon, Luca, Sofia, Noah, Emma, Leon, Mia, Liam, Lara, Gabriel, Anna, Matteo, Laura, Elias, Emily, David, Lina, Timo, Nina, Samuel, Olivia, Jan"
+        
+
+        function toggleInput(otherInputId, currentInput) {
+                var otherInput = document.getElementById(otherInputId);
+                if (currentInput.value) {
+                    otherInput.disabled = true;
+                }
+                else {
+                    otherInput.disabled = false;
+                }
+            }
+
+        function assignGroups() {
+            var names = document.getElementById('names').value.split(',').map(name => name.trim()).filter(name => name);
+            var groupCount = parseInt(document.getElementById('groupCount').value);
+            var peoplePerGroup = parseInt(document.getElementById('peoplePerGroup').value);
+            var groups = [];
+
+            var namen
+            var schluessel
+            
+            if(names == "G23m"){schluessel = "G23m"; namen = G23m;}
+            if(names == "G23n"){schluessel = "G23n"; namen = G23n;}
+
+            if(names == schluessel){
+                    
+                    var names = namen.split(',').map(name => name.trim()).filter(name => name);
+                    var groupCount = parseInt(document.getElementById('groupCount').value);
+                    var peoplePerGroup = parseInt(document.getElementById('peoplePerGroup').value);
+                    var groups = [];}
+
+            if (!names.length || (isNaN(groupCount) && isNaN(peoplePerGroup))) {
+                alert('Please enter valid names and either group count or people per group.');
+                return;
+            }
+
+            if (!isNaN(groupCount) && groupCount > 0) {
+                // Assign names to a specified number of groups
+                for (var i = 0; i < groupCount; i++) {
+                    groups[i] = [];
+                }
+                while (names.length) {
+                    for (var i = 0; i < groupCount && names.length; i++) {
+                        var randomIndex = Math.floor(Math.random() * names.length);
+                        groups[i].push(names.splice(randomIndex, 1)[0]);
+                    }
+                }
+            } else if (!isNaN(peoplePerGroup) && peoplePerGroup > 0) {
+                // Determine the number of groups based on people per group
+                groupCount = Math.ceil(names.length / peoplePerGroup);
+
+                for (var i = 0; i < groupCount; i++) {
+                    groups[i] = [];
+                }
+
+                // Evenly distribute names among the groups
+                while (names.length) {
+                    for (var i = 0; i < groupCount && names.length; i++) {
+                        var randomIndex = Math.floor(Math.random() * names.length);
+                        if (groups[i].length < peoplePerGroup || (names.length <= groupCount - i)) {
+                            groups[i].push(names.splice(randomIndex, 1)[0]);
+                        }
+                    }
+                }
+            }
+
+            // Display groups
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            groups.forEach(function(group, index) {
+                var groupDiv = document.createElement('div');
+                groupDiv.className = 'group';
+
+                var groupHeader = document.createElement('span');
+                groupHeader.innerHTML = '<strong>Group ' + (index + 1) + ':</strong> ';
+                groupDiv.appendChild(groupHeader);
+
+                var groupList = document.createElement('span');
+                groupList.innerText = group.join(', ');
+                groupDiv.appendChild(groupList);
+
+                resultDiv.appendChild(groupDiv);
+            });
+
+        }
+
+        // Event listener for the Enter key
+        document.addEventListener('keyup', function(event) {if (event.key === 'Enter') {assignGroups();}});
+
+
+
+    </script>
+</body>
+</html>
