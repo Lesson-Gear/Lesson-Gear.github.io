@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!--
+    Copyright © 2023 LessonGear. All rights reserved.
+    All rights reserved. This software is the property of LessonGear. 
+    Unauthorized copying of this code, in whole or in part, is strictly prohibited.
+    For inquiries about licensing and usage, please contact LessonGear@gmail.com.
+    -->
+
+    <link rel="stylesheet" href="../../Css/interface_2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img id="myImage" src="" >
+    <title>Roll a die</title>
+
+</head>
+
+<body>
+
+    <a href="../../index.html">    <img src="../../Central/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+
+
+    <div class="container">
+
+        <h1>Roll a die</h1>
+        <button class="button" onclick="rollaDie()">Roll</button>
+
+    </div>
+
+    <script>
+
+        function rollaDie() {
+
+            var result =Math.round((Math.random() * 5 +1) );
+            var imageElement = document.getElementById("myImage");
+
+            if (result === 1) { imageElement.src = "1.png"; }
+            else if(result === 2) { imageElement.src = "2.png"; }
+            else if(result === 3) { imageElement.src = "3.png"; }
+            else if(result === 4) { imageElement.src = "4.png"; }
+            else if(result === 5) { imageElement.src = "5.png"; }
+            else if(result === 6) { imageElement.src = "6.png"; }
+        }
+    
+        rollaDie();
+
+    </script>
+
+</body>
+</html>

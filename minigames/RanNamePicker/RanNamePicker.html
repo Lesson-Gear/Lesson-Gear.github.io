@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Random Name Picker</title>
+    <link rel="stylesheet" href="../../Css/interface_1.css">
+
+</head>
+<body>
+
+    <a href="../../index.html">    <img src="../../Central/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+
+    <div class="container">
+        
+        <header> <h1>Random Name Picker</h1> </header>
+
+        <div class="content">
+
+            <div class="left">
+
+                <textarea class="large-textarea" id="names" placeholder="Please enter the names separated by commas." onkeyup="checkEnter(event)"></textarea>
+
+                <div class="inputs" id="inputContainer">
+
+                    <input type="number" min="1" id="count" placeholder="select count">
+                    
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <div id="result" class="text-area"> </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="button-container">
+
+        <div class = "button-text-container">
+            
+            <div class="button-area">
+
+                <button onclick="downloadNamesFile()">Download</button>
+                <button onclick="loadFile()"id="uploadBtn">Upload</button> 
+                <input type="file" id="fileUpload" accept=".txt" style="display: none">
+
+            </div>
+
+            <div class="text-aarea">
+
+                So you don't have to enter the names manually each time, you can download a text file where the names are stored. 
+                To do this, enter the names in the name field and then click the download button. 
+                Subsequently, the file will be automatically downloaded. You can move this file from your download folder as desired. 
+                When using the Random Group Generator again, you can click the upload button and select the file with the names.
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        var G23m = "Mats, Q, W, E, R, T"
+        var G23n = "Nick, Nico, Simon, Luca, Sofia, Noah, Emma, Leon, Mia, Liam, Lara, Gabriel, Anna, Matteo, Laura, Elias, Emily, David, Lina, Timo, Nina, Samuel, Olivia, Jan"
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                pickRandomNames();}}
+
+        function pickRandomNames() {
+            var namesInput = document.getElementById("names");
+            var countInput = document.getElementById("count");
+            var resultDiv = document.getElementById("result");
+            var names = namesInput.value.split(',').map(name => name.trim());
+            var count = parseInt(countInput.value);
+
+            /* Checking for classkeys */
+            var namen
+            var schluessel
+            
+            if(names == "G23m"){schluessel = "G23m"; namen = G23m;}
+            if(names == "G23n"){schluessel = "G23n"; namen = G23n;}
+
+            if(names == schluessel){
+                    
+                var names = namen.split(',').map(name => name.trim());
+                var count = parseInt(countInput.value);
+            }
+
+            if (names.length === 0 || isNaN(count) || count < 1) {
+                resultDiv.textContent = "Please enter names and a valid count.";
+                return;
+            }
+
+            if (count > names.length) {
+                resultDiv.textContent = "Count exceeds the number of names available.";
+                return;
+            }
+
+            var randomNames = [];
+            while (randomNames.length < count) {
+                var randomIndex = Math.floor(Math.random() * names.length);
+                var randomName = names.splice(randomIndex, 1)[0];
+                randomNames.push(randomName);
+            }
+
+            resultDiv.innerHTML = `<strong>Randomly Chosen Names:</strong> ${randomNames.join(", ")}`;
+        }
+
+
+
+        function downloadNamesFile() {
+            var namesInput = document.getElementById("names");
+            var names = namesInput.value;
+            var blob = new Blob([names], { type: "text/plain" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "names.txt";
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            document.getElementById('fileUpload').click();
+        });
+
+        document.getElementById('fileUpload').addEventListener('change', function(event) {
+            const fileInput = document.getElementById("fileUpload");
+            const namesInput = document.getElementById("names");
+
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const fileContent = e.target.result;
+                    namesInput.value = fileContent;
+                };
+                reader.readAsText(file);
+            }
+        });
+
+
+        document.addEventListener('keyup', function(event) {if (event.key === 'Enter') {pickRandomNames();}});
+
+    </script>
+</body>
+</html>

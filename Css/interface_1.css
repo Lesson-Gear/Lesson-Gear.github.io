@@ -1,0 +1,168 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0; 
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+h1 {
+    margin-top: 13%;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size:300%;
+}
+
+textarea, input, .upload {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    width: 13vw;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #F6F6F6;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 20px;
+    height: 70vh;
+}
+
+.button-container {
+
+    top: 95%; 
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.button-text-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.button-area {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+button:hover{
+    border-color:#007bff;
+}
+
+.text-aarea {
+    font-size: 18px;
+    flex-grow: 1;
+    max-width: 1000px;
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 120px; 
+}
+
+textarea:focus, input:focus, .upload:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.large-textarea {
+    width: 35vw;
+    height: 20vh;
+    resize: none;
+}
+
+.small-inputs {
+    display: flex;
+    justify-content: center;
+}
+
+.small-inputs input {
+    width: 140px;
+}
+
+.upload {
+    cursor: pointer;
+    background-color: #f2f2f2;
+    display: inline-block;
+}
+
+.upload input[type="file"] {
+    display: none;
+}
+
+.upload label {
+    cursor: pointer;
+    display: block;
+}
+
+.bottom-text {
+    position:absolute;
+    top: 600px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+}
+
+.text-area {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: left;
+    background-color: #f9f9f9;
+    width: 25vw;
+    height: 55vh;
+}
+
+.left {
+    flex: 1;
+    padding: 10px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+} 
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#result {
+    max-height: 400px;
+    overflow-y: auto;
+}
