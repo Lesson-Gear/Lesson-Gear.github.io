@@ -1,1 +1,0 @@
-# LessonGear.github.io
