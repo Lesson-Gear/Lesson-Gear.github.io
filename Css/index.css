@@ -20,15 +20,15 @@ h1 {
 h2 {
     font-size: 175%;
     margin-bottom: 15px;
-    color: #999;
-    visibility: hidden;
-    display: none;
+    color: #333;
 }
 
 h3 {
     font-size: 145%;
     margin-bottom: 15px;
     color: #333;
+    visibility: hidden;
+    display: none;
 }
 
 .main-content {
