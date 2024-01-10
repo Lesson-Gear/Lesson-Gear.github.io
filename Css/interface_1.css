@@ -166,3 +166,8 @@ textarea:focus, input:focus, .upload:focus {
     max-height: 400px;
     overflow-y: auto;
 }
+
+.go {
+    margin: 10px;
+    margin-top: 18px;
+}
