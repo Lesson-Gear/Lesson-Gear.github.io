@@ -12,7 +12,8 @@ body {
 
 h1 {
     font-size: 500%;
-    margin: 10px;
+    margin: 0px;
+    margin-top: 10px;
     letter-spacing: 1px;
     font-weight: bold;
 }
