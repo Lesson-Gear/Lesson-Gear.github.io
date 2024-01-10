@@ -17,23 +17,21 @@
         <header> <h1>Random Name Picker</h1> </header>
 
         <div class="content">
-
             <div class="left">
-
                 <textarea class="large-textarea" id="names" placeholder="Please enter the names separated by commas." onkeyup="checkEnter(event)"></textarea>
 
                 <div class="inputs" id="inputContainer">
-
                     <input type="number" min="1" id="count" placeholder="select count">
-                    
+                </div>
+
+                <div class="go">
+                    <button id = "go" onclick="assignGroups()">generate!</button>
                 </div>
 
             </div>
 
             <div class="right">
-
                 <div id="result" class="text-area"> </div>
-
             </div>
 
         </div>
