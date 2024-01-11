@@ -124,6 +124,7 @@ textarea {
     transition: border-color 0.3s;
     height: 80px;
     width: 500px;
+    resize: none;
 }
 
 /* New button styles */
