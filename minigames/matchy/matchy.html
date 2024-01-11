@@ -27,6 +27,9 @@
     </div>
 
     <div class="desk-container">
+        <div class="teacher">
+            <div class="deskt"></div>
+        </div>
         <!-- Generate 12 desk placeholders -->
         <div class="row">
             <div class="desk"></div>
@@ -49,6 +52,10 @@
     </div>
 
     <script>
+        const desk = document.querySelectorAll(".deskt");
+        let deskIndex = 0;
+        desk[deskIndex].textContent = "Teacher's Desk";
+
         // Herunterladen von Text als .txt-Datei
         document.getElementById('download').addEventListener('click', function() {
             // Textinhalt aus dem Eingabefeld holen
