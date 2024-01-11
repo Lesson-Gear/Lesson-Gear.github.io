@@ -1,0 +1,103 @@
+body {
+    margin: 0; /* Remove default body margin */
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.desk-container {
+    display: flex;
+    flex-direction: column; /* Arrange desks in a column */
+    align-items: center; /* Center desks horizontally */
+    gap: 20px; /* Add space between rows of desks */
+    margin-left: 20px; /* Increase the margin on the left side */
+    margin-right: 20px; /* Increase the margin on the right side */
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-between; /* Add space between the first two and the last two desks in each row */
+    width: 100%; /* Ensure rows take full width */
+}
+
+.row + .row {
+    margin-top: 10px; /* Add a gap between rows */
+}
+
+.title {
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+    
+}
+
+.input-container {
+    display: flex;
+    align-items: center; /* Align input elements horizontally */
+    gap: 10px;
+}
+
+.desk {
+    height: 70px; /* Adjust the desk height */
+    border: 2px solid black;
+    margin-bottom: 10px; /* Adjust the margin between desks */
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    width: 20%;
+    border-radius: 10px; /* Add rounded corners to desks */
+}
+
+
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 120px;
+}
+
+#button2 {
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 120px;
+}
+
+
+
+textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    height: 80px;
+    width: 500px;
+}
+
+/* New button styles */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 5px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+}
