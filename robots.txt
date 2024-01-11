@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /Css/
+Disallow: /Central/
