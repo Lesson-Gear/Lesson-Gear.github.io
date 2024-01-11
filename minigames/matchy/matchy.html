@@ -80,7 +80,7 @@
 
             const namesTextarea = document.getElementById("names");
             const desks = document.querySelectorAll(".desk");
-            const names = namesTextarea.value.split(",").map(name => name.trim());
+            const inputNames = namesTextarea.value.split(",").map(name => name.trim());
 
             // Check if the textarea is empty
             if (namesTextarea.value.trim() === "") {
@@ -88,27 +88,37 @@
                 return; // Stop execution if the textarea is empty
             }
 
+            // Remove empty names
+            const names = inputNames.filter(name => name !== "");
+
             // Shuffle names randomly
             for (let i = names.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [names[i], names[j]] = [names[j], names[i]];
             }
 
-            // Initialize deskIndex for rows
-            let deskIndex = 0;
+            // Check if there are enough desks for the pairs
+            if (names.length > desks.length * 2) {
+                alert("Not enough desks for all people.");
+                return;
+            }
 
-            // Assign names to desks in pairs or one person alone
+            // Create pairs of names
+            const pairs = [];
             for (let i = 0; i < names.length; i += 2) {
-                const pair = [names[i], names[i + 1]];
-                if (pair[1]) { // If there is a second person in the pair
-                    desks[deskIndex].textContent = pair.join(" - ");
-                    desks[deskIndex + 1].textContent = pair.join(" - ");
-                } else { // One person sits alone
-                    desks[deskIndex].textContent = pair[0];
-                }
+                const pair = [names[i], names[i + 1]].filter(Boolean); // Remove empty names
+                pairs.push(pair);
+            }
 
-                // Move to the next desk
-                deskIndex++;
+            // Assign pairs to desks without duplicates
+            let deskIndex = 0;
+            for (let i = 0; i < pairs.length; i++) {
+                if (deskIndex < desks.length) {
+                    desks[deskIndex].textContent = pairs[i].join(" - ");
+                    deskIndex++;
+                } else {
+                    break; // Stop assigning when there are no more desks
+                }
             }
         }
 
