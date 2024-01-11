@@ -53,29 +53,6 @@
         let deskIndex = 0;
         desk[deskIndex].textContent = "Teacher";
 
-        // Herunterladen von Text als .txt-Datei
-        document.getElementById('download').addEventListener('click', function() {
-            // Textinhalt aus dem Eingabefeld holen
-            var textContent = document.getElementById('names').value;
-
-            // Erstellen eines neuen Blob-Objekts mit dem Textinhalt
-            var blob = new Blob([textContent], { type: "text/plain" });
-
-            // Erstellen eines Links für den Download
-            var url = window.URL.createObjectURL(blob);
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = "names.txt";
-
-            // Hinzufügen des Links zum Dokument und Auslösen des Downloads
-            document.body.appendChild(a);
-            a.click();
-
-            // Aufräumen (optional)
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        });
-
         // Hochladen von Textdatei
         document.getElementById('uploadBtn').addEventListener('click', function() {
             document.getElementById('fileUpload').click();
