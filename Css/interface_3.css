@@ -1,6 +1,13 @@
-body {
-    margin: 0; /* Remove default body margin */
+body, html {
+    height: 95vh;
+    margin: 0;
     margin-bottom: 50px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f0f0f0;
 }
 
 
