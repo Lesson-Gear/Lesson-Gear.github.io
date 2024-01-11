@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchy</title>
+    <link rel="stylesheet" href="../../Css/interface_3.css">
+</head>
+<body>
+    <a href="../../index.html">    <img src="../../Central/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+
+    <div class="container">
+        <h1 class="title">Matchy</h1>
+        <div class="input-container">
+            <textarea id="names" placeholder="Enter names separated by commas"></textarea>
+            <div class="button-container">
+                <button id="download">Download</button>
+                <button id="uploadBtn">Upload</button>
+                <input type="file" id="fileUpload" accept=".txt" style="display: none;">
+            </div>
+        </div>
+        
+        
+        <button id="button2" onclick="pairDesks()">Assign</button>
+        
+    </div>
+
+    <div class="desk-container">
+        <!-- Generate 12 desk placeholders -->
+        <div class="row">
+            <div class="desk"></div>
+            <div class="desk "></div>
+            <div class="desk"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="row">
+            <div class="desk"></div>
+            <div class="desk"></div>
+            <div class="desk"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="row">
+            <div class="desk"></div>
+            <div class="desk"></div>
+            <div class="desk"></div>
+            <div class="desk"></div>
+        </div>
+    </div>
+
+    <script>
+        // Herunterladen von Text als .txt-Datei
+        document.getElementById('download').addEventListener('click', function() {
+            // Textinhalt aus dem Eingabefeld holen
+            var textContent = document.getElementById('names').value;
+
+            // Erstellen eines neuen Blob-Objekts mit dem Textinhalt
+            var blob = new Blob([textContent], { type: "text/plain" });
+
+            // Erstellen eines Links für den Download
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = "names.txt";
+
+            // Hinzufügen des Links zum Dokument und Auslösen des Downloads
+            document.body.appendChild(a);
+            a.click();
+
+            // Aufräumen (optional)
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+
+        // Hochladen von Textdatei
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            document.getElementById('fileUpload').click();
+        });
+
+        document.getElementById('fileUpload').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var content = e.target.result;
+
+                // Setzen des Textinhalts im Eingabefeld
+                document.getElementById('names').value = content;
+            };
+
+            reader.readAsText(file);
+        });
+
+        function pairDesks() {
+            clearTextfields();
+
+            const namesTextarea = document.getElementById("names");
+            const desks = document.querySelectorAll(".desk");
+            const names = namesTextarea.value.split(",").map(name => name.trim());
+
+            // Check if the textarea is empty
+            if (namesTextarea.value.trim() === "") {
+                alert("Please enter names in the textarea before pairing desks.");
+                return; // Stop execution if the textarea is empty
+            }
+
+            // Shuffle names randomly
+            for (let i = names.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [names[i], names[j]] = [names[j], names[i]];
+            }
+
+            // Initialize deskIndex for rows
+            let deskIndex = 0;
+
+            // Assign names to desks in pairs or one person alone
+            for (let i = 0; i < names.length; i += 2) {
+                const pair = [names[i], names[i + 1]];
+                if (pair[1]) { // If there is a second person in the pair
+                    desks[deskIndex].textContent = pair.join(" - ");
+                    desks[deskIndex + 1].textContent = pair.join(" - ");
+                } else { // One person sits alone
+                    desks[deskIndex].textContent = pair[0];
+                }
+
+                // Move to the next desk
+                deskIndex++;
+            }
+        }
+
+        function clearTextfields() {
+            const desks = document.querySelectorAll(".desk");
+            for (let i = 0; i < desks.length; i++) {
+                desks[i].textContent = "";
+            }
+        }
+
+        // Event listener for the Enter key
+        document.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                pairDesks();
+            }
+        });
+
+    </script>
+</body>
+</html>
