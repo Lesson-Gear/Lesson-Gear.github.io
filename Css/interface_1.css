@@ -18,6 +18,15 @@ h1 {
     font-size:300%;
 }
 
+h2 {
+        font-size: 200%;
+        margin-bottom: 15px;
+        color: #333;
+        margin-top: 5px;
+        visibility: hidden;
+        display: none;
+}
+
 textarea, input, .upload {
     padding: 10px;
     margin: 10px;
