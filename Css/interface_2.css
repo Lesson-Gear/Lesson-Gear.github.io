@@ -1,4 +1,10 @@
 
+:root {
+
+  filter: invert(100%);
+
+}
+
 
         body, html {
             height: 95vh;
