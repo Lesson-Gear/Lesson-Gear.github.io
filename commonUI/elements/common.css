@@ -1,0 +1,18 @@
+.invis{
+    font-family: Arial, sans-serif;
+    justify-content: none;
+    text-align: none;
+    display:none;
+    justify-content: none;
+    align-items: none;
+    text-align: none;
+}
+
+body {
+    transition: background-color 0.3s ease;
+    margin: 0;
+}
+
+:root.dark-mode {
+    filter: invert(87%);
+}
