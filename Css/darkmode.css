@@ -1,1 +1,66 @@
+body {
+    transition: background-color 0.3s ease;
+    margin: 0;
+}
 
+.buttoncontainer {
+    max-width: 800px;
+    margin: 5px auto;
+    text-align: left;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    content: "☀";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    transition: transform 0.4s;
+    border-radius: 50%;
+}
+
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "🌙";
+
+}
+
+:root.dark-mode {
+    filter: invert(87%);
+}
