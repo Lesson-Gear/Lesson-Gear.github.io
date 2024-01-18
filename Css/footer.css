@@ -1,4 +1,4 @@
-body {
+body{
     font-family: Arial, sans-serif;
     color: #333;
     background-color: #f0f0f0; 
@@ -8,6 +8,23 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.fottypotty{
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0; 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: none;
+    text-align: none;
+    display:none;
+    justify-content: none;
+    align-items: none;
+    text-align: none;
+    background-color: #f0f0f0;
+
 }
 footer{
     background-color: #c4c4c4; /* Set a background color for the footer */
