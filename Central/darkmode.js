@@ -9,10 +9,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Set the stylesheet based on the dark mode preference
     const darkModeStylesheet = document.getElementById('darkModeStylesheet');
-    darkModeStylesheet.href = darkModeEnabled ? 'styles-dark.css' : 'styles.css';
-
-    // Invert colors if dark mode is enabled
-    if (darkModeEnabled) {
-        document.documentElement.style.filter = 'invert(75%)';
-    }
+    darkModeStylesheet.href = darkModeEnabled ? 'interface_2.css' : 'interface_2.css';
 });
