@@ -16,6 +16,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LessonGear</title></head>
 <body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+
+            darkModeToggle.addEventListener('change', function () {
+                document.documentElement.classList.toggle('dark-mode', darkModeToggle.checked);
+            });
+
+            // Check the user's preference from localStorage
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                darkModeToggle.checked = true;
+                document.documentElement.classList.add('dark-mode');
+            }
+
+            // Save user's preference to localStorage
+            darkModeToggle.addEventListener('change', function () {
+                localStorage.setItem('darkMode', darkModeToggle.checked ? 'enabled' : 'disabled');
+            });
+        });
+    </script>
+
+    
     <h1>Welcome to LessonGear</h1>
     <h2>Here you will find all the necessary tools for your class:</h2>
     <h3>Throw a die, generate random groups and much more!</h3>
@@ -59,5 +82,21 @@
         </div>
     
     </div>
+
+        <footer>
+
+    <div class="buttoncontainer">
+        <label class="switch">
+
+            <input type="checkbox" id="darkModeToggle">
+
+            <span class="slider"></span>
+        </label>            <p>Toggle Dark Mode</p>
+        <hr>
+        
+        <p>© 2024 LessonGear</p>
+    </div>
+
+      </footer>
 </body>
 </html>
