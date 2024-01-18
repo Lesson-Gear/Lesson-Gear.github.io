@@ -2,18 +2,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
 
     if (darkModeEnabled) {
-        document.documentElement.classList.add('dark-mode');
+        invertColors(87);
     }
 });
 
-// Toggle dark mode and invert colors
+document.addEventListener('click', function () {
+    toggleDarkMode();
+});
+
 function toggleDarkMode() {
     const isDarkMode = document.documentElement.classList.toggle('dark-mode');
-    invertColors(isDarkMode);
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+
+    if (isDarkMode) {
+        invertColors(87);
+    } else {
+        invertColors(0);
+    }
 }
 
-function invertColors(isDarkMode) {
-    const filterValue = isDarkMode ? 'invert(87%)' : 'invert(0)';
-    document.body.style.filter = filterValue;
+function invertColors(percentage) {
+    document.body.style.filter = `invert(${percentage}%)`;
 }
