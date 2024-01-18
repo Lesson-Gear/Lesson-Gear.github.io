@@ -75,3 +75,8 @@ h2 {
             max-width: 40vw;
             height: auto;   
         }
+
+
+:root.dark-mode {
+    filter: invert(87%);
+}
