@@ -84,7 +84,3 @@ p {
 .tool-button:hover {
     background-color: #333;
 }
-
-:root.dark-mode {
-    filter: invert(87%);
-}
