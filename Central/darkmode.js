@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Apply dark mode styles if enabled
     if (darkModeEnabled) {
         document.documentElement.classList.add('dark-mode');
+        invertColors(87);
     }
 
-    // Set the stylesheet based on the dark mode preference
-    const darkModeStylesheet = document.getElementById('darkModeStylesheet');
-    darkModeStylesheet.href = darkModeEnabled ? 'interface_2.css' : 'interface_2.css';
+    function invertColors(percentage) {
+        // Apply inversion filter to all elements on the page
+        document.body.style.filter = `invert(${percentage}%)`;
+    }
 });
