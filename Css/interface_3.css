@@ -138,8 +138,4 @@ textarea {
     padding: 10px 20px;
 }
 
-:root.dark-mode {
-    filter: invert(87%);
-}
-
 
