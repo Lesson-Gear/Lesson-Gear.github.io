@@ -180,7 +180,3 @@ textarea:focus, input:focus, .upload:focus {
     margin: 10px;
     margin-top: 18px;
 }
-
-:root.dark-mode {
-    filter: invert(87%);
-}
