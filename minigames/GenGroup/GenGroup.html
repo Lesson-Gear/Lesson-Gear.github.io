@@ -34,11 +34,11 @@
         <div class="content">
 
             <div class="left">
-                <textarea class="large-textarea" id="names" placeholder="Please enter the names separated by commas."></textarea>
+                <textarea class="large-textarea" maxlength="500" id="names" placeholder="Please enter the names separated by commas."></textarea>
 
                 <div class="inputs" id="inputContainer">
-                    <input type="number" id="groupCount" placeholder="Number of Groups" oninput="toggleInput('peoplePerGroup', this)">
-                    <input type="number" id="peoplePerGroup" placeholder="People per Group" oninput="toggleInput('groupCount', this)">
+                    <input type="number" id="groupCount" maxlength="200" placeholder="Number of Groups" oninput="toggleInput('peoplePerGroup', this)">
+                    <input type="number" id="peoplePerGroup" maxlength="200" placeholder="People per Group" oninput="toggleInput('groupCount', this)">
                 </div>
                 
                 <div class="go">
