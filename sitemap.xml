@@ -9,7 +9,7 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Other URLs (replace with your actual URLs) -->
+    <!-- Subpages of Lesson-Gear -->
     <url>
         <loc>https://lesson-gear.github.io/minigames/GenDie/GenDie.html</loc>
         <lastmod>2024-01-11T12:00:00+00:00</lastmod>
@@ -20,21 +20,21 @@
     <url>
         <loc>https://lesson-gear.github.io/minigames/GenGroup/GenGroup.html</loc>
         <lastmod>2024-01-11T12:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
 
     <url>
         <loc>https://lesson-gear.github.io/minigames/GenNumber/GenNumber.html</loc>
         <lastmod>2024-01-11T12:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
 
     <url>
         <loc>https://lesson-gear.github.io/minigames/RanNamePicker/RanNamePicker.html</loc>
         <lastmod>2024-01-11T12:00:00+00:00</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
 
@@ -44,6 +44,5 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
-
 
 </urlset>
