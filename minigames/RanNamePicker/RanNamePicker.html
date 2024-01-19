@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <meta charset="UTF-8">
-    <title>Random Name Picker</title>
+    <!--
+    Copyright © 2024 LessonGear. All rights reserved.
+    All rights reserved. This software is the property of LessonGear. 
+    Unauthorized copying of this code, in whole or in part, is strictly prohibited.
+    -->
+    
+   <meta charset="UTF-8">
    <link rel="shortcut icon" type="image/ico" href="../../favicon.ico"/>
+   <link rel="stylesheet" href="elements/common.css">
+</head>
+<body>
+    <a href="../../index.html" a>
+    <img src="../../commonUI/elements/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+    <script src="../../commonUI/elements/common.js"></script>
+
+    <div class="invis">
+        <input type="checkbox" id="darkModeToggle">
+    </div>
+</body>
+
+<!--Start your code here!!!-->
+<head>
+    <title>Random Name Picker</title>
     <link rel="stylesheet" href="../../Css/interface_1.css">
-    <link rel="stylesheet" href="../../Css/footer.css">
 
 </head>
 <body>
 
-    
-    <a href="../../index.html">    <img src="../../Central/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
-    <script src="../../Central/darkmode.js"></script>
     <div class="container">
         
         <header> <h1>Random Name Picker</h1> </header>
@@ -149,19 +164,5 @@
         document.addEventListener('keyup', function(event) {if (event.key === 'Enter') {pickRandomNames();}});
 
     </script>
-
-        <div class="fottypotty">
-    <footer>
-        <div class="buttoncontainer">
-        <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <span class="slider"></span>
-        </label> 
-        <p>Toggle Dark Mode</p>
-        <hr>
-        <p>© 2024 LessonGear</p>
-        </div>
-      </footer>
-    </div>
 </body>
 </html>
