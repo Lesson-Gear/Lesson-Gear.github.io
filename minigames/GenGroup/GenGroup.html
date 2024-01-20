@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!--
     Copyright © 2024 LessonGear. All rights reserved.
     All rights reserved. This software is the property of LessonGear. 
     Unauthorized copying of this code, in whole or in part, is strictly prohibited.
-    For inquiries about licensing and usage, please contact LessonGear@gmail.com.
     -->
-
-    <title>Random Group Generator</title>
-    <meta charset="UTF-8">
-   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Css/interface_1.css">
-    <link rel="stylesheet" href="../../Css/footer.css">
-    <meta name="description" content="Generate random grops from a set of names">
+    
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="shortcut icon" type="image/ico" href="https://lesson-gear.github.io/favicon.ico"/>
+   <link rel="stylesheet" href="https://lesson-gear.github.io/commonUI/elements/common.css">
 </head>
 <body>
-    <a href="../../index.html">    <img src="../../Central/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+    <a href="https://lesson-gear.github.io/index.html">
+    <img src="https://lesson-gear.github.io/commonUI/elements/back_to_home.png" alt="Home" style="position: fixed; top: 10px; left: 10px; max-width: 5vw; height: auto; cursor: pointer;"> </a>
+    <script src="https://lesson-gear.github.io/commonUI/elements/common.js"></script>
 
+    <div class="invis">
+        <input type="checkbox" id="darkModeToggle">
+    </div>
+</body>
 
-
-
+<!--Start your code here!!!-->
+<head>
+    <link rel="stylesheet" href="https://lesson-gear.github.io/Css/interface_1.css">
+    <meta name="description" content="Generate random grops from a set of names">
+    <title>Random Group Generator</title>
+</head>
+<body>
+    
     <div class="container">
         <header>
             <h1>Random Group Generator</h1>
@@ -133,11 +140,6 @@
 
         ////////////////////////////////////////////////////////////////////////////////////
 
-        //do classkeys
-        var G23m = "Mats, Q, W, E, R, T"
-        var G23n = "Nick, Nico, Simon, Luca, Sofia, Noah, Emma, Leon, Mia, Liam, Lara, Gabriel, Anna, Matteo, Laura, Elias, Emily, David, Lina, Timo, Nina, Samuel, Olivia, Jan"
-        
-
         function toggleInput(otherInputId, currentInput) {
                 var otherInput = document.getElementById(otherInputId);
                 if (currentInput.value) {
@@ -153,20 +155,7 @@
             var groupCount = parseInt(document.getElementById('groupCount').value);
             var peoplePerGroup = parseInt(document.getElementById('peoplePerGroup').value);
             var groups = [];
-
-            var namen
-            var schluessel
             
-            if(names == "G23m"){schluessel = "G23m"; namen = G23m;}
-            if(names == "G23n"){schluessel = "G23n"; namen = G23n;}
-
-            if(names == schluessel){
-                    
-                    var names = namen.split(',').map(name => name.trim()).filter(name => name);
-                    var groupCount = parseInt(document.getElementById('groupCount').value);
-                    var peoplePerGroup = parseInt(document.getElementById('peoplePerGroup').value);
-                    var groups = [];}
-
             if (!names.length || (isNaN(groupCount) && isNaN(peoplePerGroup))) {
                 alert('Please enter valid names and either group count or people per group.');
                 return;
@@ -224,23 +213,7 @@
 
         // Event listener for the Enter key
         document.addEventListener('keyup', function(event) {if (event.key === 'Enter') {assignGroups();}});
-
-
-
     </script>
-<script src="../../Central/darkmode.js"></script>
-        <div class="fottypotty">
-    <footer>
-        <div class="buttoncontainer">
-        <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <span class="slider"></span>
-        </label> 
-        <p>Toggle Dark Mode</p>
-        <hr>
-        <p>© 2024 LessonGear</p>
-        </div>
-      </footer>
-    </div>
+    
 </body>
 </html>
