@@ -18,6 +18,8 @@ h1 {
     margin-top: 10px;
     letter-spacing: 1px;
     font-weight: bold;
+    visibility: hidden;
+    display: none;
 }
 
 h2 {
