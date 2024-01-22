@@ -16,7 +16,7 @@
         h1 {
             color: #333;
             margin-bottom: 20px;
-            font-size: 800%;
+            font-size: 100vh;
         }
 
 :root.dark-mode {
