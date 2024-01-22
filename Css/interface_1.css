@@ -16,6 +16,8 @@ h1 {
     letter-spacing: 1px;
     font-weight: bold;
     font-size:300%;
+    visibility: hidden;
+    display: none;
 }
 
 h2 {
