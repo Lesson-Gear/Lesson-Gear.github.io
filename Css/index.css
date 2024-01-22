@@ -184,3 +184,13 @@ input:checked + .slider:before {
 :root.dark-mode {
     filter: invert(87%);
 }
+
+
+        #logo-container {
+            margin-top: 20px; /* Optional margin from the top */
+        }
+
+        #logo {
+            width: 60%; /* Adjust the width as needed */
+            height: auto; /* To maintain the aspect ratio */
+        }
