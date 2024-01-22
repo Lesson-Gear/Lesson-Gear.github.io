@@ -12,6 +12,12 @@
                 height: 20vh;
                 font-color: #333;
         }
+ 
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 300%;
+        }
 
 :root.dark-mode {
     filter: invert(87%);
