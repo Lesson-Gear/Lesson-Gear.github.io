@@ -77,3 +77,21 @@ h2 {
 :root.dark-mode {
     filter: invert(87%);
 }
+
+        .spin {
+            display: inline-block;
+            animation: spin 0.1s linear infinite;
+        }
+
+        .stop-spin {
+            animation: none; /* Stop the animation */
+        }
+
+        @keyframes spin {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(-45deg);
+            }
+        }
