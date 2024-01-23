@@ -68,7 +68,7 @@ h2 {
         }
 
         #myImage {
-            max-width: 35vw;
+            max-width: 30vw;
             height: auto;   
         }
 
@@ -92,6 +92,6 @@ h2 {
                 transform: rotate(0deg);
             }
             50% {
-                transform: rotate(-45deg);
+                transform: rotate(-35deg);
             }
         }
