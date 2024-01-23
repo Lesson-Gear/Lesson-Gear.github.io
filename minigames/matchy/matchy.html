@@ -35,7 +35,7 @@
         <div class="input-container">
             <textarea id="names" placeholder="Enter names separated by commas"></textarea>
             <div class="button-container">
-                <button id="assign" onclick="pairDesks()">Assign!</button>
+                <button id="assign" onclick="alertPremium()">Assign!</button>
                 <button id="uploadBtn" title="see GroupGenerator for download instructions!">Upload</button>
                 <input type="file" id="fileUpload" accept=".txt" style="display: none;">
             </div>
@@ -69,6 +69,7 @@
     </div>
 
     <script>
+        
         const desk = document.querySelectorAll(".deskt");
         let deskIndex = 0;
         desk[deskIndex].textContent = "Teacher";
@@ -94,7 +95,8 @@
 
             reader.readAsText(file);
         });
-
+        
+         function pairDesks() {alert("You've discovered a premium feature")}
         function pairDesks() {
             clearTextfields();
 
@@ -152,7 +154,7 @@
         // Event listener for the Enter key
         document.addEventListener('keyup', function(event) {
             if (event.key === 'Enter') {
-                pairDesks();
+                alertPremum();
             }
         });
 
