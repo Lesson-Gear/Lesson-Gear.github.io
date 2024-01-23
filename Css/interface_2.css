@@ -68,7 +68,7 @@ h2 {
         }
 
         #myImage {
-            max-width: 40vw;
+            max-width: 35vw;
             height: auto;   
         }
 
@@ -80,7 +80,7 @@ h2 {
 
         .spin {
             display: inline-block;
-            animation: spin 0.1s linear infinite;
+            animation: spin 0.01s linear infinite;
         }
 
         .stop-spin {
