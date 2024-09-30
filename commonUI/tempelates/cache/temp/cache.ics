@@ -159,13 +159,6 @@ DTEND;VALUE=DATE:20241122
 END:VEVENT
 
 BEGIN:VEVENT
-SUMMARY:English
-DESCRIPTION:Essay 
-DTSTART;VALUE=DATE:20240902
-DTEND;VALUE=DATE:20240903
-END:VEVENT
-
-BEGIN:VEVENT
 SUMMARY:Chemie
 DESCRIPTION:second exam
 DTSTART;VALUE=DATE:20241120
@@ -227,14 +220,6 @@ SUMMARY:Physik
 DESCRIPTION:second exam
 DTSTART;VALUE=DATE:20250117
 DTEND;VALUE=DATE:20250118
-END:VEVENT
-
-BEGIN:VEVENT
-SUMMARY:SF PAM
-DESCRIPTION:Lineare Ungleichungen
-1b / 2 / 3
-DTSTART;VALUE=DATE:20240902
-DTEND;VALUE=DATE:20240903
 END:VEVENT
 
 BEGIN:VEVENT
@@ -550,6 +535,20 @@ DESCRIPTION:9:00 Abfahrt in Luzern Studienwoche Politische Bildung (Bundeshaus)
 ID !!!!!!!!
 DTSTART;VALUE=DATE:20240926
 DTEND;VALUE=DATE:20240927
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:EF Infoabend
+DESCRIPTION:Einladung: Informationsabende zur Wahl des Ergänzungsfachs Liebe Schülerinnen und Schüler Sehr geehrte Eltern und Erziehungsberechtigte Mit der Wahl des Schwerpunktfaches am Ende der 2. Klasse konnte 
+DTSTART;VALUE=DATE:20241125
+DTEND;VALUE=DATE:20241126
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:EF Infoabend
+DESCRIPTION:Einladung: Informationsabende zur Wahl des Ergänzungsfachs Liebe Schülerinnen und Schüler Sehr geehrte Eltern und Erziehungsberechtigte Mit der Wahl des Schwerpunktfaches am Ende der 2. Klasse konnte 
+DTSTART;VALUE=DATE:20241127
+DTEND;VALUE=DATE:20241128
 END:VEVENT
 
 END:VCALENDAR
