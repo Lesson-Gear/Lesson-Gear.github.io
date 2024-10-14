@@ -2,13 +2,6 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Delta//NONSGML Delta-Calendar//EN
 BEGIN:VEVENT
-SUMMARY:Französisch
-DESCRIPTION:Test 1
-DTSTART;VALUE=DATE:20240917
-DTEND;VALUE=DATE:20240918
-END:VEVENT
-
-BEGIN:VEVENT
 SUMMARY:Religion
 DESCRIPTION:Prüfung "Was ist Religion?"
 DTSTART;VALUE=DATE:20241021
@@ -261,13 +254,6 @@ DTEND;VALUE=DATE:20240920
 END:VEVENT
 
 BEGIN:VEVENT
-SUMMARY:History
-DESCRIPTION:Read the link in the OneNote: https://www.history.com/news/how-the-party-of-lincoln-won-over-the-once-democratic-south
-DTSTART;VALUE=DATE:20240917
-DTEND;VALUE=DATE:20240918
-END:VEVENT
-
-BEGIN:VEVENT
 SUMMARY:Deutsch
 DESCRIPTION:Exkursion 
 13:35 in front of the Jesuitenkirche
@@ -302,20 +288,6 @@ SUMMARY:Zeitumstellung
 DESCRIPTION:...
 DTSTART;VALUE=DATE:20241027
 DTEND;VALUE=DATE:20241028
-END:VEVENT
-
-BEGIN:VEVENT
-SUMMARY:Französisch
-DESCRIPTION:Presentation de un Pay (0.2)
-DTSTART;VALUE=DATE:20241025
-DTEND;VALUE=DATE:20241026
-END:VEVENT
-
-BEGIN:VEVENT
-SUMMARY:Französisch
-DESCRIPTION:Presentations (die die am 25 nicht hineinpassen)
-DTSTART;VALUE=DATE:20241029
-DTEND;VALUE=DATE:20241030
 END:VEVENT
 
 BEGIN:VEVENT
@@ -360,6 +332,15 @@ SUMMARY:EF Infoabend
 DESCRIPTION:Einladung: Informationsabende zur Wahl des Ergänzungsfachs Liebe Schülerinnen und Schüler Sehr geehrte Eltern und Erziehungsberechtigte Mit der Wahl des Schwerpunktfaches am Ende der 2. Klasse konnte 
 DTSTART;VALUE=DATE:20241127
 DTEND;VALUE=DATE:20241128
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:SF PAM
+DESCRIPTION:Direckter Beweis: 3
+Wiederspruch Beweis: 1
+Übungen lösen
+DTSTART;VALUE=DATE:20241016
+DTEND;VALUE=DATE:20241017
 END:VEVENT
 
 END:VCALENDAR
