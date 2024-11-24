@@ -106,13 +106,6 @@ DTEND;VALUE=DATE:20241207
 END:VEVENT
 
 BEGIN:VEVENT
-SUMMARY:Zeitumstellung
-DESCRIPTION:...
-DTSTART;VALUE=DATE:20241027
-DTEND;VALUE=DATE:20241028
-END:VEVENT
-
-BEGIN:VEVENT
 SUMMARY:EF Infoabend
 DESCRIPTION:Einladung: Informationsabende zur Wahl des Ergänzungsfachs Liebe Schülerinnen und Schüler Sehr geehrte Eltern und Erziehungsberechtigte Mit der Wahl des Schwerpunktfaches am Ende der 2. Klasse konnte 
 DTSTART;VALUE=DATE:20241125
