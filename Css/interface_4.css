@@ -1,23 +1,36 @@
-        body, html {
-            height: 95vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        .clock {
-                height: 20vh;
-                font-color: #333;
-        }
- 
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 15vw;
-        }
+body, html {
+    height: 95vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+.clock {
+        height: 20vh;
+        font-color: #333;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 15vw;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 12px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #ddd;
+}
+
 
 :root.dark-mode {
     filter: invert(87%);
