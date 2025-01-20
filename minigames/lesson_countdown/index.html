@@ -79,6 +79,10 @@
                 "Enter array of times (comma-separated, e.g., 12:00, 13:30, 15:45):");
 
             if (userInput) {
+
+                if (userInput) == "reset"{
+                    editArray(defaultArray)
+                }
                 let newTimes = userInput.split(",").map(time => time.trim());
                 let invalidTimes = newTimes.filter(time => !isValidTimeFormat(time));
 
