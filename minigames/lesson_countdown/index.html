@@ -82,7 +82,9 @@
 
                 if (userInput) == "reset"{
                     editArray(defaultArray)
+                    alert("times resetted successfully")
                 }
+                else{
                 let newTimes = userInput.split(",").map(time => time.trim());
                 let invalidTimes = newTimes.filter(time => !isValidTimeFormat(time));
 
@@ -101,7 +103,7 @@
                 } else {
                     alert("No valid input provided, times not updated.");
                 }} else {
-                alert("No input provided, times not updated.");}}
+                alert("No input provided, times not updated.");}}}
 
             function getNextTime() {
                 const now = new Date();
