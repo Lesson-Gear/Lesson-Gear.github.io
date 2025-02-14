@@ -24,7 +24,7 @@
 
 <!--Start your code here!!!-->
 <head>
-    <link rel="stylesheet" href="https://lesson-gear.github.io/Css/interface_3.css">
+    <link rel="stylesheet" href="../../Css/interface_3.css">
     <meta name="description" content="Generate random seating arrangements">
     <title>SeatMatcher</title>
 </head>
@@ -49,16 +49,16 @@
         </div>
         <!-- Generate 12 desk placeholders -->
         <div class="row">
+            <div class="deskRotated"></div>
             <div class="desk"></div>
-            <div class="desk "></div>
             <div class="desk"></div>
-            <div class="desk"></div>
+            <div class="deskRotated"></div>
         </div>
         <div class="row">
+            <div class="deskRotated"></div>
             <div class="desk"></div>
             <div class="desk"></div>
-            <div class="desk"></div>
-            <div class="desk"></div>
+            <div class="deskRotated"></div>
         </div>
         <div class="row">
             <div class="desk"></div>
@@ -99,7 +99,7 @@
             clearTextfields();
 
             const namesTextarea = document.getElementById("names");
-            const desks = document.querySelectorAll(".desk");
+            const desks = document.querySelectorAll(".desk, .deskRotated");
             const inputNames = namesTextarea.value.split(",").map(name => name.trim());
 
             // Check if the textarea is empty
@@ -143,7 +143,7 @@
         }
 
         function clearTextfields() {
-            const desks = document.querySelectorAll(".desk");
+            const desks = document.querySelectorAll(".desk, .deskRotated");
             for (let i = 0; i < desks.length; i++) {
                 desks[i].textContent = "";
             }
