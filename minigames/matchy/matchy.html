@@ -48,17 +48,19 @@
             <div class="deskt"></div>
         </div>
         <!-- Generate 12 desk placeholders -->
+        
+        
         <div class="row">
-            <div class="deskRotated"></div>
+            <div class="desk" data-rotatable></div>
             <div class="desk"></div>
             <div class="desk"></div>
-            <div class="deskRotated"></div>
+            <div class="desk" data-rotatable></div>
         </div>
         <div class="row">
-            <div class="deskRotated"></div>
+            <div class="desk" data-rotatable></div>
             <div class="desk"></div>
             <div class="desk"></div>
-            <div class="deskRotated"></div>
+            <div class="desk" data-rotatable></div>
         </div>
         <div class="row">
             <div class="desk"></div>
@@ -66,8 +68,16 @@
             <div class="desk"></div>
             <div class="desk"></div>
         </div>
-    </div>
-
+        
+        <script>
+            let isRotated = true; // Change this variable as needed
+            let desks = document.querySelectorAll("[data-rotatable]"); // Select all elements that need to be changed
+        
+            desks.forEach(desk => {
+                desk.className = isRotated ? "deskRotated" : "desk";
+            });
+        </script>
+        
     <script>
         const desk = document.querySelectorAll(".deskt");
         let deskIndex = 0;
