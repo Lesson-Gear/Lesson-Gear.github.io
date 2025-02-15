@@ -142,7 +142,7 @@ textarea {
 /* New button styles */
 .button-container {
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
+    flex-direction: row; /* Stack buttons vertically */
     gap: 5px;
 }
 
