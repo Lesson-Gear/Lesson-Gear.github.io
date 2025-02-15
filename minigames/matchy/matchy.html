@@ -34,12 +34,13 @@
         <h1 class="title">SeatMatcher</h1>
         <div class="input-container">
             <textarea id="names" placeholder="Enter names separated by commas"></textarea>
-            <div class="button-container">
-                <button id="assign" onclick="pairDesks()">Assign!</button>
-                <button id="uploadBtn" title="see GroupGenerator for download instructions!">Upload</button>
-                <input type="file" id="fileUpload" accept=".txt" style="display: none;">
-            </div>
-        </div>        
+        </div>      
+        <div class="button-container">
+            <button id="assign" onclick="pairDesks()">Assign!</button>
+            <button id="uploadBtn" title="see GroupGenerator for download instructions!">Upload</button>
+            <button id="arrange" onclick="arrange()">Rearrange</button>
+            <input type="file" id="fileUpload" accept=".txt" style="display: none;">
+        </div>  
     </div>
 
     <div class="desk-container">
@@ -48,11 +49,19 @@
             <div class="deskt"></div>
         </div>
         <!-- Generate 12 desk placeholders -->
+        
+        
         <div class="row">
+            <div class="desk" data-rotatable></div>
             <div class="desk"></div>
-            <div class="desk "></div>
+            <div class="desk"></div>
+            <div class="desk" data-rotatable></div>
+        </div>
+        <div class="row">
+            <div class="desk" data-rotatable></div>
             <div class="desk"></div>
             <div class="desk"></div>
+            <div class="desk" data-rotatable></div>
         </div>
         <div class="row">
             <div class="desk"></div>
@@ -60,14 +69,21 @@
             <div class="desk"></div>
             <div class="desk"></div>
         </div>
-        <div class="row">
-            <div class="desk"></div>
-            <div class="desk"></div>
-            <div class="desk"></div>
-            <div class="desk"></div>
-        </div>
-    </div>
-
+        
+        <script>
+            var isRotated = false;
+        
+            function arrange() {
+                isRotated = !isRotated; // Toggle the state
+        
+                let desks = document.querySelectorAll("[data-rotatable]"); // Select elements
+        
+                desks.forEach(desk => {
+                    desk.className = isRotated ? "deskRotated" : "desk"; // Apply correct class
+                });
+            }
+        </script>
+        
     <script>
         const desk = document.querySelectorAll(".deskt");
         let deskIndex = 0;
@@ -99,7 +115,7 @@
             clearTextfields();
 
             const namesTextarea = document.getElementById("names");
-            const desks = document.querySelectorAll(".desk");
+            const desks = document.querySelectorAll(".desk, .deskRotated");
             const inputNames = namesTextarea.value.split(",").map(name => name.trim());
 
             // Check if the textarea is empty
@@ -143,7 +159,7 @@
         }
 
         function clearTextfields() {
-            const desks = document.querySelectorAll(".desk");
+            const desks = document.querySelectorAll(".desk, .deskRotated");
             for (let i = 0; i < desks.length; i++) {
                 desks[i].textContent = "";
             }
