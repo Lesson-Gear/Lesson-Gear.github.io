@@ -10,6 +10,7 @@
    <meta charset="UTF-8">
    <link rel="shortcut icon" type="image/ico" href="https://lesson-gear.github.io/favicon.ico"/>
    <link rel="stylesheet" href="https://lesson-gear.github.io/commonUI/elements/common.css">
+   <link rel="stylesheet" href="https://lesson-gear.github.io/commonUI/banner.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="let one or multiple random names be picked from a set you specfy">
 </head>
@@ -177,5 +178,13 @@
         document.addEventListener('keyup', function(event) {if (event.key === 'Enter') {pickRandomNames();}});
 
     </script>
+</body>
+<body>
+    <div id="banner" class="banner">
+        <span>This site uses cookies for functionality and analytics. By using it, you agree to our <a href="pages/terms.html">Terms</a> and our <a href="pages/privacy-policy.html">privacy policy</a>.🍪</span>
+        <button id="close-btn" class="close-btn">&times;</button>
+    </div>
+
+    <script src="https://lesson-gear.github.io/scripts/banner.js"></script>
 </body>
 </html>
