@@ -57,8 +57,9 @@
                 <textarea class="large-textarea" maxlength="500" id="names" placeholder="Please enter the names separated by commas."></textarea>
 
                 <div class="inputs" id="inputContainer">
-                    <input type="number" id="groupCount" maxlength="200" placeholder="Number of Groups" oninput="toggleInput('peoplePerGroup', this)">
-                    <input type="number" id="peoplePerGroup" maxlength="200" placeholder="People per Group" oninput="toggleInput('groupCount', this)">
+                    <input type="number" id="groupCount" min="1" maxlength="200" placeholder="Number of Groups" oninput="toggleInput('peoplePerGroup', this)">
+                    <p>or</p>
+                    <input type="number" id="peoplePerGroup" min="1" maxlength="200" placeholder="People per Group" oninput="toggleInput('groupCount', this)">
                 </div>
                 
                 <div class="go">
@@ -85,13 +86,11 @@
             </div>
             <div class="text-aarea">
 
-                So that you don't have to enter the names manually each time, 
-                you can download a text file where the names are stored. 
-                To do this, enter the names in the name field and then click the download button. 
-                Subsequently, the file will be automatically downloaded. 
-                You can move this file from your download folder as desired. 
-                When using the Random Group Generator again, 
-                you can click the upload button and select the file with the names.
+                To avoid manually entering names each time, you can download a text file containing them. 
+                Simply enter the names in the name field and click the download button. 
+                The file will be saved automatically, and you can move it from your downloads folder as needed. 
+                When using the Random Group Generator again, click the upload button and select the saved file to 
+                import the names.
 
             </div>
         </div>
