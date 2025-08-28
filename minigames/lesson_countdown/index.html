@@ -162,12 +162,10 @@
     <div id="banner-container"></div>
 
     <script>
-      // Load the central banner filer
-      fetch("../../../CommonUI/elements/cookie_baner.html")
+      fetch("https://lesson-gear.github.io/commonUI/elements/cookie_banner.html")
         .then(response => response.text())
         .then(html => {
           document.getElementById("banner-container").innerHTML = html;
-          // Load the banner behavior script after injection
           const script = document.createElement("script");
           script.src = "https://lesson-gear.github.io/scripts/banner.js";
           document.body.appendChild(script);
