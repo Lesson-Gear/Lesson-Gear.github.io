@@ -92,6 +92,10 @@
 
             if (userInput) {
 
+                if (userInput.trim().toLowerCase() === "jump") {
+                window.location.href = "https://lesson-gear.github.io/minigames/fallingCountdown/";
+                return;}
+
                 if (userInput == "reset"){
                     editArray(defaultArray)
                     alert("times resetted successfully")
@@ -148,6 +152,10 @@
                 countdownElement.textContent = `${next.hours.toString().padStart(2, '0')}:${next.minutes.toString().padStart(2, '0')}:${next.seconds.toString().padStart(2, '0')}`;}
             setInterval(updateCountdown, 1000);
             updateCountdown();
+
+        document.getElementById("myButton").onclick = function () {
+        location.href = "www.lesson-gear.github.io/minigames/fallingCountdown";
+    };
         </script>
 </body>
 <body>
