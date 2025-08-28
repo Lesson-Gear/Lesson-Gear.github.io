@@ -48,4 +48,19 @@
     </div> 
 
 </body>
+<body>
+    <div id="banner-container"></div>
+
+    <script>
+      fetch("https://lesson-gear.github.io/commonUI/elements/cookie_banner.html")
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById("banner-container").innerHTML = html;
+          const script = document.createElement("script");
+          script.src = "https://lesson-gear.github.io/scripts/banner.js";
+          document.body.appendChild(script);
+        })
+        .catch(err => console.error("Failed to load banner:", err));
+    </script>
+</body>
 </html>

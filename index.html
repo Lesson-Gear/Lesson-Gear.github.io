@@ -118,13 +118,20 @@
     </div>
 
       </footer>
-      <body>
-        <div id="banner" class="banner">
-            <span>This site uses cookies for functionality and analytics. By using it, you agree to our <a href="pages/terms.html">Terms</a> and our <a href="pages/privacy-policy.html">privacy policy</a>.🍪</span>
-            <button id="close-btn" class="close-btn">&times;</button>
-        </div>
-    
-        <script src="https://lesson-gear.github.io/scripts/banner.js"></script>
-    </body>
+<body>
+    <div id="banner-container"></div>
+
+    <script>
+      fetch("https://lesson-gear.github.io/commonUI/elements/cookie_banner.html")
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById("banner-container").innerHTML = html;
+          const script = document.createElement("script");
+          script.src = "https://lesson-gear.github.io/scripts/banner.js";
+          document.body.appendChild(script);
+        })
+        .catch(err => console.error("Failed to load banner:", err));
+    </script>
+</body>
 </body>
 </html>
