@@ -43,6 +43,20 @@ h4 {
     color: #333;
 }
 
+.tool-card-featured h6 {
+  font-weight: bold;
+  font-style: normal; /* removes bold */
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  margin: 8px; /* gives a little breathing room */
+  text-align: center;
+  color: goldenrod;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+
 .main-content {
     display: flex;
     flex-wrap: wrap;
@@ -57,6 +71,20 @@ h4 {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tool-card-featured {
+    flex: 0 1 calc(33.33% - 20px);
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border:3px solid;
+    border-color: goldenrod;
     transition: transform 0.3s ease-in-out;
     text-align: center;
     margin-bottom: 20px;
