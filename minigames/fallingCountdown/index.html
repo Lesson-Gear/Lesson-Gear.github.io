@@ -149,14 +149,19 @@
             }, time);
         };
 
-        let isImmune = false
-        function applyImmunity (time){
+        let isImmune = false;
+        let immunityStart = 0;
+        let immunityDuration = 0;
+
+        function applyImmunity(time) {
             isImmune = true;
+            immunityStart = performance.now();
+            immunityDuration = time;
 
             setTimeout(() => {
                 isImmune = false;
             }, time);
-        };
+        }
 
         function triggerGoldRush() {
             let count = 0;
@@ -252,7 +257,7 @@
                         createMessage(posX, posY, "green", "+15 Points", 1000);
                     }
                 }},
-                { percentage: 20, action: () => applyImmunity(5000) },
+                { percentage: 20, action: () => applyImmunity(10000) },
                 { percentage: 1, action: () => {
                     score += 200;
                     createMessage(posX, posY, "gold", "+200 Points", 1000);
@@ -285,11 +290,42 @@
                 startScoreTimer();
             }
         });
+function drawPlayer() {
+    // Draw the player normally
+    ctx.fillStyle = '#00f';
+    ctx.fillRect(playerX, playerY, playerWidth, playerHeight);
 
-        function drawPlayer() {
-            ctx.fillStyle = '#00f';
-            ctx.fillRect(playerX, playerY, playerWidth, playerHeight);
+    if (isImmune) {
+        // Steady glow for the entire immunity duration
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = `rgba(77, 139, 247, 0.5)`; // steady, semi-transparent
+        ctx.shadowColor = `rgba(77, 139, 247, 0.5)`;
+        ctx.shadowBlur = 12;
+        ctx.strokeRect(playerX - 2, playerY - 2, playerWidth + 4, playerHeight + 4);
+
+        // Flashing pulse in the last 3 seconds
+        const elapsed = performance.now() - immunityStart;
+        const remaining = immunityDuration - elapsed;
+
+        if (remaining <= 4000) {
+            const time = performance.now() / 100;
+            const alpha = 0.6 + 0.2 * Math.sin(time); // pulsates between 0.4–0.8
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`; // brighter flash
+            ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
+            ctx.shadowBlur = 16;
+
+            ctx.strokeRect(playerX - 2, playerY - 2, playerWidth + 4, playerHeight + 4);
         }
+
+        // Reset shadow for other drawings
+        ctx.shadowBlur = 0;
+    }
+}
+
+
+
 
         function drawBlocks() {
             for (let i = 0; i < blocks.length; i++) {
