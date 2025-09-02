@@ -50,6 +50,7 @@
     <div id="countdown" style="position: absolute; top: 7%; left: 50%; transform: translate(-50%, -50%); color: red; font-family: VT323, monospace; font-size: 30px; text-align: center;"></div>
 
     <script>
+ 
         const timeArray = [
             ["7:25", "no school", true], ["8:15", "Bell in:", false], ["9:00", "Bell in:", false],
             ["9:05", "Bell in:", false], ["9:50", "Bell in:", false], ["10:10", "Bell in:", false],
@@ -134,7 +135,6 @@
         let gameOver = false;
 
         let scoreInterval;
-        let level = 0;
         let velocityX = 0;
 
         let baseAcceleration = 0.05;
@@ -150,6 +150,8 @@
 
         let messages = [];
 
+        let level = 0;
+
         function applySlowdown (time) {
             slowdownActive = true;
             
@@ -162,6 +164,23 @@
         let immunityStart = 0;
         let immunityDuration = 0;
         let immunityTimeoutId = null;
+
+            function calculateSpeed(baseSpeed, scoreOffset = 0, totalAdjustment = 0)
+            {return (baseSpeed+0.75) + level +totalAdjustment}
+            // (Math.sqrt(score+scoreOffset) * 0.25)
+
+            // function calculateSpeed(baseSpeed, scoreOffset = 0, totalAdjustment = 0) {
+            //     baseSpeed += 0.75; // minimum speed
+            //     const adjustedScore = score + scoreOffset; // shift score baseline
+            //     const r = adjustedScore % 100;             // within-level progress
+
+            //     return baseSpeed
+            //             + (score / 100)    // linear growth
+            //             + 0.25 * level             // milestone bonus
+            //             + 0.002 * (r ** 2)         // gradual creep
+            //             + totalAdjustment;         // global tuning
+            //     }
+
 
         function applyImmunity(time) {
             if (isImmune && immunityTimeoutId) {
@@ -397,21 +416,16 @@
 
 
         function spawnBlock() {
+            baseSpeed = (Math.random() < 0.9 ? 2 : (Math.random() * (3.1 - 3) + 5));
             const width = Math.random() * 40 + 35;
-            var baseSpeed = Math.random() < 0.9 ? 2 : (Math.random() * (3.1 - 3) + 5);
-            const speedIncrease = Math.sqrt(score) * 0.25;
-            if (score > 200){
-            randomSpeedVariation = (Math.random() * 2) - 1;}
-            else {var randomSpeedVariation = 0}
-            const speed = baseSpeed + speedIncrease + randomSpeedVariation;
+            randomSpeedVariation = ((Math.random() * 2) - 1)*(1/3*level)
             const x = Math.random() * (canvas.width - width);
-            
-            const block = { x, y: -50, width, height: 30, speed, golden: false };
+            const block = { x, y: -50, width, height: 30, speed:calculateSpeed(baseSpeed, 0, randomSpeedVariation), golden: false };
             blocks.push(block);
         }
 
         function tryGoldenBlockSpawn() {
-            const odds = 380; // 1 in x chance
+            const odds = 380;
             const goldenBlockExists = blocks.some(block => block.golden);
     
             if (!goldenBlockExists && Math.random() < 1 / odds) {
@@ -421,24 +435,16 @@
 
         function spawnGoldenBlock() {
             const width = Math.random() * 50 + 30;
-            const baseSpeed = 2;
-            const speedIncrease = Math.sqrt(score) * 0.25;
-            const speed = baseSpeed + speedIncrease;
             const x = Math.random() * (canvas.width - width);
-            
-            const newGoldenBlock = { x, y: -50, width, height: 30, speed, golden: true };
+            const newGoldenBlock = { x, y: -50, width, height: 30, speed: calculateSpeed(2), golden: true };
             blocks.push(newGoldenBlock);
         }
 
         function spawnGoldRushBlock() {
             const width = Math.random() * 50 + 30;
-            const baseSpeed = 4;
-            const speedIncrease = Math.sqrt(score) * 0.25;
-            const speed = baseSpeed + speedIncrease;
             const x = Math.random() * (canvas.width - width);
-            const y = Math.random() * (canvas.height - 30);
             
-            const newGoldRushBlock = { x, y, width, height: 30, speed, golden: true, rushed: true };
+            const newGoldRushBlock = { x, y:-50 , width, height: 30, speed: calculateSpeed(4), golden: true, rushed: true };
             blocks.push(newGoldRushBlock);
         }
 
@@ -522,6 +528,7 @@
             playerY = canvas.height - playerHeight - 15;
             blocks = [];
             score = 0;
+            level = 0;
             gameOver = false;
             highScore = getHighScore();
             startScoreTimer();
