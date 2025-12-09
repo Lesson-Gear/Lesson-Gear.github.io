@@ -96,9 +96,9 @@
                 window.location.href = "https://lesson-gear.github.io/minigames/fallingCountdown/";
                 return;}
 
-                if (userInput == "reset"){
+                if (userInput.trim().toLowerCase() == "reset"){
                     editArray(defaultArray)
-                    alert("times resetted successfully")
+                    alert("times reset successfully")
                 }
                 else{
                 let newTimes = userInput.split(",").map(time => time.trim());
