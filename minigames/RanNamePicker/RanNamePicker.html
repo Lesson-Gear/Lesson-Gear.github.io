@@ -146,10 +146,8 @@
             while (randomNames.length < count) {
                 var randomIndex = Math.floor(Math.random() * names.length);
                 var randomName = names.splice(randomIndex, 1)[0];
-                if funcCheck.includes(hashSHA256(randomName.lowercase)) {
-                }
-                else{
-                randomNames.push(randomName);
+                if (!funcCheck.includes(hashSHA256(randomName.toLowerCase()))) {
+                    randomNames.push(randomName);
                 }
             }
 
@@ -210,4 +208,5 @@
     </script>
 </body>
 </html>
+
 
