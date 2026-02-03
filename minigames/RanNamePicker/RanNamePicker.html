@@ -97,7 +97,17 @@
         
         var G23m = "Mats, Q, W, E, R, T"
         var G23n = "Nick, Nico, Simon, Luca, Sofia, Noah, Emma, Leon, Mia, Liam, Lara, Gabriel, Anna, Matteo, Laura, Elias, Emily, David, Lina, Timo, Nina, Samuel, Olivia, Jan"
+        var funcCheck = ["530a6928a38a2a2de00e4e6c7d5465996f9d501efa44efa7adacc9a2e8569ac1", "be1ff2826c9cb9d007760c5a2bba86689906baf78e3e4bed44e043247514ab4e", "d2078f6a8462bfec4e6f05745234e2df3383fde64a8e9c4eece233ba176e4b6e", "1b4cf534c7f762dd4e014b865f6faca83e93e85a072ee1a3a6663cc3ee668162"]
+        async function hashSHA256(text) {
+          const encoder = new TextEncoder();
+          const data = encoder.encode(text);
 
+          const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+        
+          return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        }
+        
         function checkEnter(event) {
             if (event.key === "Enter") {
                 pickRandomNames();}}
@@ -136,7 +146,11 @@
             while (randomNames.length < count) {
                 var randomIndex = Math.floor(Math.random() * names.length);
                 var randomName = names.splice(randomIndex, 1)[0];
+                if funcCheck.includes(hashSHA256(randomName.lowercase)) {
+                }
+                else{
                 randomNames.push(randomName);
+                }
             }
 
             resultDiv.innerHTML = `<strong>Randomly Chosen Name(s):</strong> ${randomNames.join(", ")}`;
@@ -196,3 +210,4 @@
     </script>
 </body>
 </html>
+
