@@ -1,0 +1,117 @@
+{
+  "name": "U shaped arrangement",
+  "id": "UshapeDesks-1",
+  "size": {
+    "width": 0.15,
+    "height": 0.11
+  },
+  "teacher": {
+    "width": 0.22,
+    "height": 0.13,
+    "exists": true,
+    "id": "teacher1",
+    "x": 0.5,
+    "y": 0.05,
+    "rotation": 0
+  },
+  "arrangement": [
+    {
+      "id": "desk-1",
+      "x": 0.05,
+      "y": 0.12,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-1-seat-1" }, { "id": "desk-1-seat-2" }]
+    },
+    {
+      "id": "desk-2",
+      "x": 0.05,
+      "y": 0.34,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-2-seat-1" }, { "id": "desk-2-seat-2" }]
+    },
+    {
+      "id": "desk-3",
+      "x": 0.05,
+      "y": 0.56,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-3-seat-1" }, { "id": "desk-3-seat-2" }]
+    },
+    {
+      "id": "desk-4",
+      "x": 0.05,
+      "y": 0.78,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-4-seat-1" }, { "id": "desk-4-seat-2" }]
+    },
+
+    {
+      "id": "desk-5",
+      "x": 0.17,
+      "y": 0.83,
+      "rotation": 0,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-5-seat-1" }, { "id": "desk-5-seat-2" }]
+    },
+    {
+      "id": "desk-6",
+      "x": 0.325,
+      "y": 0.83,
+      "rotation": 0,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-6-seat-1" }, { "id": "desk-6-seat-2" }]
+    },
+    {
+      "id": "desk-7",
+      "x": 0.48,
+      "y": 0.83,
+      "rotation": 0,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-7-seat-1" }, { "id": "desk-7-seat-2" }]
+    },
+    {
+      "id": "desk-8",
+      "x": 0.635,
+      "y": 0.83,
+      "rotation": 0,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-8-seat-1" }, { "id": "desk-8-seat-2" }]
+    },
+
+    {
+      "id": "desk-9",
+      "x": 0.76,
+      "y": 0.78,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-9-seat-1" }, { "id": "desk-9-seat-2" }]
+    },
+    {
+      "id": "desk-10",
+      "x": 0.76,
+      "y": 0.56,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-10-seat-1" }, { "id": "desk-10-seat-2" }]
+    },
+    {
+      "id": "desk-11",
+      "x": 0.76,
+      "y": 0.34,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-11-seat-1" }, { "id": "desk-11-seat-2" }]
+    },
+    {
+      "id": "desk-12",
+      "x": 0.76,
+      "y": 0.12,
+      "rotation": 90,
+      "singleDesk": false,
+      "seats": [{ "id": "desk-12-seat-1" }, { "id": "desk-12-seat-2" }]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "fkdjfldjdjdfl",
+  "name": "G23m",
+  "people": [
+    { "id": "name-1", "name": "Susanne" },
+    { "id": "name-2", "name": "Peter" },
+    { "id": "name-3", "name": "Lily" },
+    { "id": "name-4", "name": "Max" },
+    { "id": "name-5", "name": "Hugo" },
+    { "id": "name-6", "name": "Anna" },
+    { "id": "name-7", "name": "Jonas" },
+    { "id": "name-8", "name": "Emma" },
+    { "id": "name-9", "name": "Lucas" },
+    { "id": "name-10", "name": "Mia" },
+    { "id": "name-11", "name": "Noah" },
+    { "id": "name-12", "name": "Sophie" },
+    { "id": "name-13", "name": "Daniel" },
+    { "id": "name-14", "name": "Ella" },
+    { "id": "name-15", "name": "Leon" },
+    { "id": "name-16", "name": "Clara" },
+    { "id": "name-17", "name": "Felix" },
+    { "id": "name-18", "name": "Nora" },
+    { "id": "name-19", "name": "Oscar" },
+    { "id": "name-20", "name": "Isabella" }
+  ]
+}
