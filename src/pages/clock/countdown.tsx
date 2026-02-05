@@ -7,24 +7,21 @@ const DEFAULT_TIMES = [
 ];
 
 export default function LessonCountdown() {
-  const [times, setTimes] = useState(DEFAULT_TIMES);
   const [countdown, setCountdown] = useState("00:00:00");
 
   useEffect(() => {
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
     return () => clearInterval(interval);
-  }, [times]);
+  }, [DEFAULT_TIMES]);
 
-  const isValidTimeFormat = (time: string): boolean =>
-    /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(time);
 
   const getNextTime = () => {
     const now = new Date();
     const nowSeconds =
       now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
 
-    const lessonSeconds = times.map(t => {
+    const lessonSeconds = DEFAULT_TIMES.map(t => {
       const [h, m] = t.split(":").map(Number);
       return h * 3600 + m * 60;
     });
@@ -46,50 +43,6 @@ export default function LessonCountdown() {
 
   const updateCountdown = () => {
     setCountdown(getNextTime());
-  };
-
-  const editTimes = () => {
-    const input = prompt(
-      "Enter array of times (comma-separated, e.g., 12:00, 13:30, 15:45):"
-    );
-
-    if (!input) {
-      alert("No input provided, times not updated.");
-      return;
-    }
-
-    const trimmed = input.trim().toLowerCase();
-
-    if (trimmed === "jump") {
-      window.location.href =
-        "https://lesson-gear.github.io/minigames/fallingCountdown/";
-      return;
-    }
-
-    if (trimmed === "reset") {
-      setTimes(DEFAULT_TIMES);
-      alert("Times reset successfully");
-      return;
-    }
-
-    let newTimes = input.split(",").map(t => t.trim());
-    const invalid = newTimes.filter(t => !isValidTimeFormat(t));
-
-    if (invalid.length) {
-      alert(
-        "Following times are invalid and will not be added:\n" +
-          invalid.join(", ")
-      );
-    }
-
-    newTimes = newTimes.filter(isValidTimeFormat);
-
-    if (newTimes.length) {
-      setTimes(newTimes);
-      alert("Times updated!");
-    } else {
-      alert("No valid input provided, times not updated.");
-    }
   };
 
   return (

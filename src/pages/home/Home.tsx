@@ -88,18 +88,4 @@ const Home = () => {
     );
 };
 
-type ValueProps = {
-  title: string;
-  text: string;
-};
-
-function Value({ title, text }: ValueProps) {
-  return (
-    <div className="p-6 text-center bg-white rounded-lg shadow">
-      <h4 className="text-lg font-semibold">{title}</h4>
-      <p className="mt-2 text-gray-600">{text}</p>
-    </div>
-  );
-}
-
 export default Home;

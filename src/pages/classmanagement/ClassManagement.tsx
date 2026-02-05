@@ -56,6 +56,7 @@ export default function ClassManagement() {
   /* ---------- persistence ---------- */
   useEffect(() => {
     localStorage.setItem("classes", JSON.stringify(allClasses));
+    setSelected(false);
   }, [allClasses]);
 
   /* ---------- helpers ---------- */
