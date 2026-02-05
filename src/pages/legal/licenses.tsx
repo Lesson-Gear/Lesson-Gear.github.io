@@ -6,7 +6,7 @@ export default function License() {
       <h2 className="text-2xl font-semibold mb-2 text-gray-800">MIT</h2>
       <p className="mb-4 text-gray-700">
         While this project is not licensed under MIT it incorporates code licensed under the MIT license. These packages
-        are listed below with a copy of the license attached:
+        are listed below with a copy of the license attached. All other components are proprietary and not subject to the MIT License."
       </p>
 
       <ul className="list-disc list-inside mb-6 text-gray-700 space-y-1">
