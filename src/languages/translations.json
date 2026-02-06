@@ -19,7 +19,7 @@
         "Arrangement": "Arrangement",
         "Classes": "Classes",
         "ChooseClass": "Select a class",
-        "ClassName": "Enter class name",
+        "ClassName": "Enter class new name",
         "LessonCountDownDescription": "Check how much time is remaining in a lesson.",
         "AbsentPeople": "Select absent students",
         "AbsentPeopleDescription": "Absent students selected here will be excluded from your class lists in all tools.",
@@ -37,7 +37,9 @@
         "seatMatchDescriptionHeader": "Generate seating arrangements",
         "groupGeneratorDescription": "Generate groups",
         "lessonCountdownDescription": "Check how much time is left in a lesson",
-        "classManagementDescription": "Manage your classes"
+        "classManagementDescription": "Manage your classes",
+        "NewClass": "Add new class",
+        "Submit": "Sumbit"
     },
     "de": {
         "seatMatchDescription": "Generiere zufällige Sitzordnungen für Ihre Klasse.",
@@ -59,7 +61,7 @@
         "Arrangement": "Ordnung",
         "Classes": "Klassen",
         "ChooseClass": "Wählen Sie eine Klasse",
-        "ClassName": "Klassennamen eingeben",
+        "ClassName": "Neuen Klassennamen eingeben",
         "LessonCountDownDescription": "Finden Sie heraus, wie viel Zeit in der Stunde noch verbleibt.",
         "AbsentPeople": "Abwesende Schüler:innen auswählen",
         "AbsentPeopleDescription": "Abwesende Schüler:innen, die hier ausgewählt werden, werden in allen Tools von Ihren Klassenlisten ausgeschlossen.",
@@ -77,7 +79,9 @@
         "seatMatchDescriptionHeader": "Sitzordnungen erstellen",
         "groupGeneratorDescription": "Gruppen erstellen",
         "lessonCountdownDescription": "Verbleibende Unterrichtszeit anzeigen",
-        "classManagementDescription": "Klassen verwalten"
+        "classManagementDescription": "Klassen verwalten",
+        "NewClass": "Neue Klasse hinzufügen",
+        "Submit": "Absenden"
     },
     "fr": {
         "seatMatchDescription": "Générez des plans de placement aléatoires pour votre classe.",
@@ -99,7 +103,7 @@
         "Arrangement": "Disposition",
         "Classes": "Classes",
         "ChooseClass": "Sélectionner une classe",
-        "ClassName": "Entrez le nom de la classe",
+        "ClassName": "Entrez le nouveau nom de la classe",
         "LessonCountDownDescription": "Vérifiez le temps restant dans le cours.",
         "AbsentPeople": "Sélectionner les élèves absents",
         "AbsentPeopleDescription": "Les élèves absents sélectionnés ici seront exclus de toutes les listes de classe.",
@@ -117,7 +121,9 @@
         "seatMatchDescriptionHeader": "Générer des plans de classe",
         "groupGeneratorDescription": "Générer des groupes",
         "lessonCountdownDescription": "Voir le temps restant du cours",
-        "classManagementDescription": "Gérer vos classes"
+        "classManagementDescription": "Gérer vos classes",
+        "NewClass": "Ajouter une nouvelle classe",
+        "Submit": "Soumettre"
     },
     "es": {
         "seatMatchDescription": "Genera asignaciones de asientos aleatorias para tu clase.",
@@ -157,6 +163,8 @@
         "seatMatchDescriptionHeader": "Generar disposiciones de asientos",
         "groupGeneratorDescription": "Generar grupos",
         "lessonCountdownDescription": "Ver cuánto tiempo queda de la lección",
-        "classManagementDescription": "Gestionar tus clases"
+        "classManagementDescription": "Gestionar tus clases",
+        "NewClass": "Agregar nueva clase",
+        "Submit": "Enviar"
     }
 }

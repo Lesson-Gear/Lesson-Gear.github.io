@@ -17,7 +17,12 @@ import {
 } from "@/components/ui/combobox"
 import { useLanguage } from "@/languages/LanguageContext.tsx";
 import { HoverQuestion } from "../groupgenerator/components/AppSideBarGroupGen.tsx";
-import { TriangleAlert } from "lucide-react"
+import { TriangleAlert, Check } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 type TranslateFn = ReturnType<typeof useLanguage>["t"];
 
 export function getClassesFromStorage(): Class[] {
@@ -243,12 +248,41 @@ function ClassSelector({
             )}
           </div>
 
-          <button
-            className="rounded-md transition px-2 hover:cursor-pointer hover:bg-secondary-button-hover"
-            onClick={() => setIsAddingNewClass(true)}
-          >
-            <Plus size={18} />
-          </button>
+          {!isAddingNewClass && 
+            <Tooltip>
+              <TooltipTrigger>
+                <button
+                  className="rounded-md transition px-2 py-2 hover:cursor-pointer hover:bg-secondary-button-hover"
+                  onClick={() => setIsAddingNewClass(true)}
+                >
+                  <Plus size={18} />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{t("NewClass")}</p>
+              </TooltipContent>
+            </Tooltip>
+          }
+
+          {isAddingNewClass && 
+            <Tooltip>
+              <TooltipTrigger>
+                <button
+                  className="rounded-md transition px-2 py-2 ml-1 hover:cursor-pointer hover:bg-secondary-button-hover"
+                  onClick={() => {
+                    addNewClass(newClass.trim());
+                    setNewClass("");
+                    setIsAddingNewClass(false);}
+                  }
+                >
+                  <Check size={18} />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{t("Submit")}</p>
+              </TooltipContent>
+            </Tooltip>
+          }
         </div>
 
         <div className="flex flex-row items-center gap-3 pt-3">
