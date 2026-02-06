@@ -87,6 +87,8 @@ export function AppSidebar({
           />
         </div>
 
+        <ManageYourClasses t={t}/>
+
         {!!currentClass?.absentPeopleIds.length && (
           <PeopleMarkedAsAbsentMessage t={t}/>
         )}
@@ -112,8 +114,24 @@ export function AppSidebar({
     </Sidebar>
   );
 }
-
 type TranslateFn = ReturnType<typeof useLanguage>["t"];
+
+type ManageYourClassesProps = {
+  t: TranslateFn
+}
+export const ManageYourClasses: React.FC<ManageYourClassesProps> = ({t}) => {
+  return (
+    <div className="w-full">
+      <div className="text-sm text-muted-foreground">
+        <NavLink to="/class-management" className="text-blue-500">
+          {t("Manage")}
+        </NavLink>
+        {" " + t("YourClasses")}
+      </div>
+    </div>
+  )
+}
+
 type PeopleMarkedAsAbsentMessageProps = {
   t: TranslateFn;
 }

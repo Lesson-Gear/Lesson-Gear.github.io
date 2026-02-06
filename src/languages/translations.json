@@ -39,7 +39,9 @@
         "lessonCountdownDescription": "Check how much time is left in a lesson",
         "classManagementDescription": "Manage your classes",
         "NewClass": "Add new class",
-        "Submit": "Sumbit"
+        "Submit": "Sumbit",
+        "Manage": "Manage",
+        "YourClasses": "your classes"
     },
     "de": {
         "seatMatchDescription": "Generiere zufällige Sitzordnungen für Ihre Klasse.",
@@ -81,7 +83,9 @@
         "lessonCountdownDescription": "Verbleibende Unterrichtszeit anzeigen",
         "classManagementDescription": "Klassen verwalten",
         "NewClass": "Neue Klasse hinzufügen",
-        "Submit": "Absenden"
+        "Submit": "Absenden",
+        "Manage": "Verwalten",
+        "YourClasses": "Sie Ihre Klassen"
     },
     "fr": {
         "seatMatchDescription": "Générez des plans de placement aléatoires pour votre classe.",
@@ -123,7 +127,9 @@
         "lessonCountdownDescription": "Voir le temps restant du cours",
         "classManagementDescription": "Gérer vos classes",
         "NewClass": "Ajouter une nouvelle classe",
-        "Submit": "Soumettre"
+        "Submit": "Soumettre",
+        "Manage": "Gérer",
+        "YourClasses": "vos cours"
     },
     "es": {
         "seatMatchDescription": "Genera asignaciones de asientos aleatorias para tu clase.",
@@ -165,6 +171,8 @@
         "lessonCountdownDescription": "Ver cuánto tiempo queda de la lección",
         "classManagementDescription": "Gestionar tus clases",
         "NewClass": "Agregar nueva clase",
-        "Submit": "Enviar"
+        "Submit": "Enviar",
+        "Manage": "Gestionar",
+        "YourClasses": "sus clases"
     }
 }
