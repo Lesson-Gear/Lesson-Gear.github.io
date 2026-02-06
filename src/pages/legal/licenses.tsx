@@ -5,7 +5,7 @@ export default function License() {
       <h1 className="text-3xl font-bold mb-4 text-gray-900">License</h1>
       <p className="mb-4 text-gray-700">
         While this project is not licensed under MIT it incorporates code licensed under the MIT license. These packages
-        are listed below with a copy of the license attached. All other components are proprietary and not subject to the MIT License."
+        are listed below with a copy of the license attached. All other components are proprietary and not subject to the MIT License.
       </p>
       <h2 className="text-2xl font-semibold mb-2 text-gray-800">MIT</h2>
 
