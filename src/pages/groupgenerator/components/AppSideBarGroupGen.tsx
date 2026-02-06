@@ -23,7 +23,7 @@ import {
   ComboboxList,
 } from "@/components/ui/combobox";
 import { CircleQuestionMark } from "lucide-react";
-import { PeopleMarkedAsAbsentMessage } from "@/pages/seatmatch/components/AppSideBarSeatMatch";
+import { PeopleMarkedAsAbsentMessage, ManageYourClasses } from "@/pages/seatmatch/components/AppSideBarSeatMatch";
 
 
 export function AppSidebarGroupGen({
@@ -132,6 +132,8 @@ export function AppSidebarGroupGen({
             onChange={setCurrentClassId}
             ariaInvalid={classSelected}
           />
+
+          <ManageYourClasses t={t}/>
 
           {!!currentClass?.absentPeopleIds.length && (
             <PeopleMarkedAsAbsentMessage t={t}/>
