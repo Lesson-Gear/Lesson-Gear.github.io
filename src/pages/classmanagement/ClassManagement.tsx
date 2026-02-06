@@ -268,11 +268,14 @@ function ClassSelector({
             <Tooltip>
               <TooltipTrigger>
                 <button
+                onMouseDown={(e) => e.preventDefault()}
                   className="rounded-md transition px-2 py-2 ml-1 hover:cursor-pointer hover:bg-secondary-button-hover"
                   onClick={() => {
-                    addNewClass(newClass.trim());
-                    setNewClass("");
-                    setIsAddingNewClass(false);}
+                    if (newClass.trim()) {
+                      addNewClass(newClass.trim());
+                      setNewClass("");
+                      setIsAddingNewClass(false);
+                    }}
                   }
                 >
                   <Check size={18} />
