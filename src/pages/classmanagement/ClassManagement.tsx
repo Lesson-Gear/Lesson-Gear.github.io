@@ -53,7 +53,6 @@ export default function ClassManagement() {
 
   const [changingName, setChangingName] = useState<Names | null>(null);
   const [newName, setNewName] = useState("");
-  const [isAdding, setIsAdding] = useState(false);
   const [selected, setSelected] = useState(false);
   const [isAddingNewClass, setIsAddingNewClass] = useState(false);
   const [newClass, setNewClass] = useState("");
@@ -140,10 +139,8 @@ export default function ClassManagement() {
           currentClass={currentClass}
           changingName={changingName}
           newName={newName}
-          isAdding={isAdding}
           setChangingName={setChangingName}
           setNewName={setNewName}
-          setIsAdding={setIsAdding}
           updateName={updateName}
           addNewNames={addNewNames}
           removeName={removeName}
@@ -345,7 +342,7 @@ function ClassSelector({
               </ComboboxList>
             </ComboboxContent>
           </Combobox>
-        </div>
+        </div>        
       </div>
     </div>
   );
@@ -357,10 +354,8 @@ type ClassCardProps = {
   currentClass: Class;
   changingName: Names | null;
   newName: string;
-  isAdding: boolean;
   setChangingName: (n: Names | null) => void;
   setNewName: (v: string) => void;
-  setIsAdding: (v: boolean) => void;
   updateName: (id: string, name: string) => void;
   addNewNames: (name: string) => void;
   removeName: (id: string) => void;
@@ -371,15 +366,23 @@ function ClassCard({
   currentClass,
   changingName,
   newName,
-  isAdding,
   setChangingName,
   setNewName,
-  setIsAdding,
   updateName,
   addNewNames,
   removeName,
   t
 }: ClassCardProps) {
+
+  const handleAdd = () => {
+    if (!newName.trim()) return;
+    addNewNames(newName.trim());
+    setNewName("");
+    setIsAddingName(false);
+  };
+
+  const [isAddingName, setIsAddingName] = useState<boolean>(false);
+
   return (
     <div className="border-2 border-group-outline bg-card-background p-4 w-90 rounded-lg flex flex-col h-150">
       <div className="flex flex-row font-semibold border-b justify-center items-center mb-2 pb-2 gap-2">
@@ -388,30 +391,24 @@ function ClassCard({
           onChange={(e) => setNewName(e.target.value)}
           placeholder={t("EnterName")}
           onBlur={() => {
-            if (!isAdding) {
-                setNewName(""); // cancel
+            if (!isAddingName) {
+              setNewName("");
             }
-            setIsAdding(false);
-            setNewName("");
           }}
           onKeyDown={(e) => {
-            if (e.key === "Enter" && newName.trim()) {
-              addNewNames(newName.trim());
-              setNewName("");
+            if (e.key === "Enter") {
+              handleAdd();
             } else if (e.key === "Escape") {
-              setIsAdding(false);
               setNewName("");
+              e.currentTarget.blur();
             }
           }}
         />
 
         <button
-          onMouseDown={() => setIsAdding(true)}
-          onClick={() => {
-            if (!newName.trim()) return;
-            addNewNames(newName.trim());
-            setNewName("");
-          }}
+          className="hover:cursor-pointer"
+          onClick={handleAdd}
+          onMouseDown={() => setIsAddingName(true)}
         >
           Add
         </button>
