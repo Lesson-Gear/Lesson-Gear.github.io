@@ -41,7 +41,15 @@
         "NewClass": "Add new class",
         "Submit": "Sumbit",
         "Manage": "Manage",
-        "YourClasses": "your classes"
+        "YourClasses": "your classes",
+        "ClassSettings": "Class Settings",
+        "EditClass": "Edit Class",
+        "DeleteClass": "Delete Class",
+        "Delete": "Delete",
+        "Cancel": "Cancel",
+        "ConfirmDeleteClass": "Do you really want to delete this class?",
+        "EnterNewClassName": "Enter new class name",
+        "Save": "Save"
     },
     "de": {
         "seatMatchDescription": "Generiere zufällige Sitzordnungen für Ihre Klasse.",
@@ -85,7 +93,15 @@
         "NewClass": "Neue Klasse hinzufügen",
         "Submit": "Absenden",
         "Manage": "Verwalten",
-        "YourClasses": "Sie Ihre Klassen"
+        "YourClasses": "Sie Ihre Klassen",
+        "ClassSettings": "Klasseneinstellungen",
+        "EditClass": "Klasse bearbeiten",
+        "DeleteClass": "Klasse löschen",
+        "Delete": "Löschen",
+        "Cancel": "Abbrechen",
+        "ConfirmDeleteClass": "Möchten Sie diese Klasse wirklich löschen?",
+        "EnterNewClassName": "Neuen Klassennamen eingeben",
+        "Save": "Speichern"
     },
     "fr": {
         "seatMatchDescription": "Générez des plans de placement aléatoires pour votre classe.",
@@ -129,7 +145,15 @@
         "NewClass": "Ajouter une nouvelle classe",
         "Submit": "Soumettre",
         "Manage": "Gérer",
-        "YourClasses": "vos cours"
+        "YourClasses": "vos cours",
+        "ClassSettings": "Paramètres de la classe",
+        "EditClass": "Modifier la classe",
+        "DeleteClass": "Supprimer la classe",
+        "Delete": "Supprimer",
+        "Cancel": "Annuler",
+        "ConfirmDeleteClass": "Voulez-vous vraiment supprimer cette classe ?",
+        "EnterNewClassName": "Entrer un nouveau nom de classe",
+        "Save": "Enregistrer"
     },
     "es": {
         "seatMatchDescription": "Genera asignaciones de asientos aleatorias para tu clase.",
@@ -173,6 +197,14 @@
         "NewClass": "Agregar nueva clase",
         "Submit": "Enviar",
         "Manage": "Gestionar",
-        "YourClasses": "sus clases"
+        "YourClasses": "sus clases",
+        "ClassSettings": "Configuración de la clase",
+        "EditClass": "Editar clase",
+        "DeleteClass": "Eliminar clase",
+        "Delete": "Eliminar",
+        "Cancel": "Cancelar",
+        "ConfirmDeleteClass": "¿Realmente quieres eliminar esta clase?",
+        "EnterNewClassName": "Introducir un nuevo nombre de clase",
+        "Save": "Guardar"
     }
 }

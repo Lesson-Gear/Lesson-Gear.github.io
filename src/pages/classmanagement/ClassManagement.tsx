@@ -14,7 +14,21 @@ import {
   ComboboxValue,
   useComboboxAnchor,
   ComboboxInput,
-} from "@/components/ui/combobox"
+} from "@/components/ui/combobox";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button"
+import { Trash2Icon } from "lucide-react";
 import { useLanguage } from "@/languages/LanguageContext.tsx";
 import { HoverQuestion } from "../groupgenerator/components/AppSideBarGroupGen.tsx";
 import { TriangleAlert, Check } from "lucide-react";
@@ -70,6 +84,24 @@ export default function ClassManagement() {
     );
   };
 
+  const removeClass = (id: string | undefined) => {
+    if (!id) return;
+
+    console.log("removing class");
+    setAllClasses(prev => 
+      prev.filter((ele) => ele.id !== id)
+    );
+  }
+
+  const editClassName = (id: string | undefined, name: string | undefined) => {
+    if (!id || !name) return;
+
+    console.log("chaning class name");
+    setAllClasses(
+      prev => prev.map((cls) => cls.id === id ? {...cls, name: name} : cls)
+    );
+  }
+
   /* ---------- people mutations ---------- */
   const updateName = (personId: string, name: string) => {
     if (!currentClassId) return;
@@ -116,6 +148,8 @@ export default function ClassManagement() {
     setCurrentClassId(cls.id);
   };
 
+
+
   return (
     <main className="flex grid-cols-2 gap-20 min-h-0 items-center justify-center h-full">
       
@@ -132,6 +166,8 @@ export default function ClassManagement() {
         t={t}
         updateClass={updateClass}
         absentPeople={absentPeople}
+        removeClass={removeClass}
+        editClassName={editClassName}
       />
 
       {currentClass && (
@@ -166,7 +202,10 @@ type ClassSelectorProps = {
   addNewClass: (name: string) => void;
   t: TranslateFn;
   updateClass: (id: string, updater: (cls: Class) => Class) => void;
-  absentPeople: Names[]
+  absentPeople: Names[];
+
+  removeClass: (id: string | undefined) => void;
+  editClassName: (id: string | undefined, name: string | undefined) => void;
 };
 
 function ClassSelector({
@@ -181,10 +220,14 @@ function ClassSelector({
   addNewClass,
   t,
   updateClass,
-  absentPeople
+  absentPeople,
+  removeClass,
+  editClassName
 }: ClassSelectorProps) {
   const comboBoxAnchor = useComboboxAnchor()
-
+  const [newClassName, setNewClassName] = useState<string>("");
+  const [nameInvalid, setNameInvalid] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
   
 
   return (
@@ -235,8 +278,9 @@ function ClassSelector({
                   <ComboboxEmpty>No items found.</ComboboxEmpty>
                   <ComboboxList>
                     {(cls) => (
-                      <ComboboxItem key={cls.id} value={cls}>
+                      <ComboboxItem key={cls.id} value={cls} className="flex flex-row space-x-3">
                         {cls.name}
+
                       </ComboboxItem>
                     )}
                   </ComboboxList>
@@ -247,7 +291,7 @@ function ClassSelector({
 
           {!isAddingNewClass && 
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger asChild>
                 <button
                   className="rounded-md transition px-2 py-2 hover:cursor-pointer hover:bg-secondary-button-hover"
                   onClick={() => setIsAddingNewClass(true)}
@@ -342,7 +386,98 @@ function ClassSelector({
               </ComboboxList>
             </ComboboxContent>
           </Combobox>
-        </div>        
+        </div>
+
+
+        {currentClass && <div className="flex flex-col pt-4">
+          <label
+            className="text-sm font-medium text-gray-700 dark:text-gray-200"
+          >
+            {t("ClassSettings")}
+          </label>
+
+          <div className="flex flex-row space-x-3 pt-2">
+
+            <AlertDialog open={open}>
+              <AlertDialogTrigger asChild>
+                <Button variant="outline" className="gap-2" onClick={() => setOpen(true)}>
+                  <Edit className="h-4 w-4" />
+                  {t("EditClass")}
+                </Button>
+              </AlertDialogTrigger>
+
+              <AlertDialogContent className="">
+                <AlertDialogHeader className="space-y-4">
+
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                      <Edit className="h-5 w-5 text-muted-foreground" />
+                    </div>
+
+                    <AlertDialogTitle className="text-lg font-semibold">
+                      {t("EnterNewClassName")}
+                    </AlertDialogTitle>
+                  </div>
+
+                  <div className="space-y-2 w-full">
+                    <Input
+                      value={newClassName}
+                      onChange={(e) => {
+                        setNewClassName(e.target.value)
+                      }}
+                      placeholder={t("EnterNewClassName")}
+                      className={`w-full ${nameInvalid ? "border-2 border-red-500": ""}`}
+                    />
+                  </div>
+
+                </AlertDialogHeader>
+
+                <AlertDialogFooter className="gap-2">
+                  <AlertDialogCancel onClick={() => setOpen(false)}>
+                    {t("Cancel")}
+                  </AlertDialogCancel>
+
+                  <AlertDialogAction className="gap-2" onClick={() => {
+                    if (newClassName === "" || !newClassName) {
+                      setNameInvalid(true);
+                    } else {
+                      setNameInvalid(false);
+                      editClassName(currentClass?.id, newClassName);
+                      setOpen(false);
+                      setNewClassName("");
+                    }
+                  }}>
+                    {t("Save")}
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+
+
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="destructive">{t("DeleteClass")}</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent size="sm">
+                <AlertDialogHeader>
+                  <AlertDialogMedia className="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
+                    <Trash2Icon />
+                  </AlertDialogMedia>
+                  <AlertDialogTitle>{t("DeleteClass")} ?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    {t("ConfirmDeleteClass")}
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel variant="outline">{t("Cancel")}</AlertDialogCancel>
+                  <AlertDialogAction onClick={() => removeClass(currentClass?.id)} variant="destructive">{t("Delete")}</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
+
+        </div>}
+
       </div>
     </div>
   );
