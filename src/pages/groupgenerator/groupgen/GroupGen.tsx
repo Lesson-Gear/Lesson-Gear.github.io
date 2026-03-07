@@ -3,7 +3,7 @@ import type { DragStartEvent, UniqueIdentifier, DragEndEvent } from "@dnd-kit/co
 import {useDraggable, useDroppable, DndContext, DragOverlay } from '@dnd-kit/core';
 import { useOutletContext } from "react-router";
 import type { GroupArrangement, Names } from "./GroupGenTypes.ts";
-import { WhatsNewGroupGen } from "@/pages/home/PopUps.tsx";
+import { WhatsNewGroupGen } from "@/pages/home/WelcomePopups.tsx";
 
 
 const GroupGen = () => {

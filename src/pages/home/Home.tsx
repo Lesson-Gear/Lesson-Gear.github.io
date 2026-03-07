@@ -1,9 +1,11 @@
 import { maxXSize } from "@/main";
 import { ToolCard } from "./HomeComponents";
-import { WelcomeInfoDialog } from "./PopUps";
+import { WelcomeInfoDialog } from "./WelcomePopups";
 import { useLanguage } from "@/languages/LanguageContext.tsx";
 import { Presentation, Users, Clock, LibraryBig } from "lucide-react";
 import { Link } from "react-router";
+import NewVersionPopups from "./NewVersionPopups.tsx";
+import { Toaster } from "sonner";
 
 const Home = () => {
     const { t } = useLanguage();
@@ -13,6 +15,8 @@ const Home = () => {
     return (
         <div className="font-sans text-gray-800 bg-gray-50 dark:bg-gray-900">
         <WelcomeInfoDialog />
+        <Toaster position="top-center" />
+        <NewVersionPopups />
 
         <div
             className="px-5 py-24 text-center text-white bg-linear-to-br from-blue-500 to-green-500 relative"

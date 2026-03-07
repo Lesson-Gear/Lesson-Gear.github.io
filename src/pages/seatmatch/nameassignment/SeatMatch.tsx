@@ -5,7 +5,7 @@ import {useDraggable, useDroppable, DndContext, DragOverlay } from '@dnd-kit/cor
 import { useOutletContext } from "react-router";
 import type { Arrangement, Teacher, Seat } from "@/pages/seatmatch/nameassignment/types.ts";
 import { useLanguage } from "@/languages/LanguageContext.tsx";
-import { WhatsNewSeatMatch } from "@/pages/home/PopUps";
+import { WhatsNewSeatMatch } from "@/pages/home/WelcomePopups";
 
 
 const SeatMatch = () => {
